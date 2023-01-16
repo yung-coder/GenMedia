@@ -1,4 +1,4 @@
-import expres from "express";
+import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -10,6 +10,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { register } from "./controllers/auth.js";
 import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -40,6 +41,7 @@ const upload = multer({ storage });
 app.post("/auth/register", upload.single("picture"), register);
 
 app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
 
 // db connect
 
