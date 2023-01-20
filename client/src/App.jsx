@@ -1,13 +1,19 @@
-import { useState } from 'react'
-import './index.css'
+import { Route, Routes } from "react-router-dom";
+import "./index.css";
+import LoginPage from "./scenes/loginPage";
+import HomePage from "./scenes/homePage";
+import ProfilePage from "./scenes/profilePage";
 
 function App() {
-
   return (
-    <div className="text-3xl text-red-600">
-      Demo live testing
+    <div className="">
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/profile/:userId" element={<ProfilePage />} />
+      </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
