@@ -43,7 +43,51 @@ const Form = () => {
   const isLogin = PageType === "login";
   const isRegister = PageType === "register";
 
-  const handleFormSubmit = async (values, onSumbitProps) => {};
+  const register = async (values, onSumbitProps) => {
+    const formData = new FormData();
+    for (let value in values) {
+      formData.append(value, values[value]);
+    }
+    formData.append("picturePath", values.picture.name);
+
+    const savedUserResponse = await fetch(
+      "http://localhost:3001/auth/register",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+    const savedUser = await savedUserResponse.json();
+    onSumbitProps.resetForm();
+
+    if (savedUser) {
+      setPageType("login");
+    }
+  };
+
+  const login = async (values, onSumbitProps) => {
+    const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    });
+    const loggedIn = await loggedInResponse.json();
+    onSumbitProps.resetForm();
+    if (loggedIn) {
+      dispatch(
+        setLogin({
+          user: loggedIn.user,
+          token: loggedIn.token,
+        })
+      );
+      navigate("/home");
+    }
+  };
+
+  const handleFormSubmit = async (values, onSumbitProps) => {
+    if (isLogin) await login(values, onSumbitProps);
+    if (isRegister) await register(values, onSumbitProps);
+  };
 
   return (
     <Formik
@@ -77,7 +121,7 @@ const Form = () => {
                       <div class="mb-4">
                         <label
                           class="block mb-2 text-sm font-bold text-gray-700"
-                          for="email"
+                          htmlfor="email"
                         >
                           Email
                         </label>
@@ -91,13 +135,13 @@ const Form = () => {
                           error={
                             Boolean(touched.email) && Boolean(errors.email)
                           }
-                          helperText={touched.email && errors.email}
+                        
                         />
                       </div>
                       <div class="mb-4">
                         <label
                           class="block mb-2 text-sm font-bold text-gray-700"
-                          for="password"
+                          htmlfor="password"
                         >
                           Password
                         </label>
@@ -110,7 +154,6 @@ const Form = () => {
                             Boolean(touched.password) &&
                             Boolean(errors.password)
                           }
-                          helperText={touched.password && errors.password}
                           placeholder="******************"
                         />
                       </div>
@@ -128,7 +171,6 @@ const Form = () => {
                           class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
                           onClick={() => {
                             setPageType(isLogin ? "register" : "login");
-                            resetFrom();
                           }}
                         >
                           Create an Account!
@@ -164,7 +206,7 @@ const Form = () => {
                         <div class="">
                           <label
                             class="block mb-2 text-sm font-bold text-gray-700"
-                            for="firstName"
+                            htmlfor="firstName"
                           >
                             First Name
                           </label>
@@ -179,13 +221,12 @@ const Form = () => {
                               Boolean(touched.firstName) &&
                               Boolean(errors.firstName)
                             }
-                            helperText={touched.firstName && errors.firstName}
                           />
                         </div>
                         <div class="md:ml-2">
                           <label
                             class="block mb-2 text-sm font-bold text-gray-700"
-                            for="lastName"
+                            htmlfor="lastName"
                           >
                             Last Name
                           </label>
@@ -199,7 +240,7 @@ const Form = () => {
                               Boolean(touched.lastName) &&
                               Boolean(errors.lastName)
                             }
-                            helperText={touched.lastName && errors.lastName}
+                            
                             value={values.lastName}
                           />
                         </div>
@@ -207,7 +248,7 @@ const Form = () => {
                       <div class="mb-4">
                         <label
                           class="block mb-2 text-sm font-bold text-gray-700"
-                          for="email"
+                          htmlfor="email"
                         >
                           Email
                         </label>
@@ -219,7 +260,6 @@ const Form = () => {
                           error={
                             Boolean(touched.email) && Boolean(errors.email)
                           }
-                          helperText={touched.email && errors.email}
                           type="email"
                           placeholder="Email"
                         />
@@ -227,7 +267,7 @@ const Form = () => {
                       <div class="mb-4">
                         <label
                           class="block mb-2 text-sm font-bold text-gray-700"
-                          for="location"
+                          htmlfor="location"
                         >
                           Location
                         </label>
@@ -237,7 +277,6 @@ const Form = () => {
                           type="text"
                           placeholder="location"
                           onChange={handleChange}
-                          helperText={touched.loacation && errors.loacation}
                           value={values.loacation}
                           error={
                             Boolean(touched.loacation) &&
@@ -248,7 +287,7 @@ const Form = () => {
                       <div class="mb-4">
                         <label
                           class="block mb-2 text-sm font-bold text-gray-700"
-                          for="occupation"
+                          htmlfor="occupation"
                         >
                           Occupation
                         </label>
@@ -258,7 +297,6 @@ const Form = () => {
                           type="text"
                           placeholder="occupation"
                           onChange={handleChange}
-                          helperText={touched.occupation && errors.occupation}
                           value={values.occupation}
                           error={
                             Boolean(touched.occupation) &&
@@ -292,7 +330,7 @@ const Form = () => {
                         <div class="mb-4 md:mr-2 md:mb-0">
                           <label
                             class="block mb-2 text-sm font-bold text-gray-700"
-                            for="password"
+                            htmlfor="password"
                           >
                             Password
                           </label>
@@ -305,7 +343,6 @@ const Form = () => {
                               Boolean(touched.password) &&
                               Boolean(errors.password)
                             }
-                            helperText={touched.password && errors.password}
                             placeholder="******************"
                           />
                         </div>
