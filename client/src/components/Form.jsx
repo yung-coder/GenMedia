@@ -146,6 +146,7 @@ const Form = () => {
                           id="password"
                           type="password"
                           onChange={handleChange}
+                          value={values.password}
                           placeholder="******************"
                         />
                       </div>
@@ -314,6 +315,7 @@ const Form = () => {
                             id="password"
                             type="password"
                             onChange={handleChange}
+                            value={values.password}
                             placeholder="******************"
                           />
                         </div>
