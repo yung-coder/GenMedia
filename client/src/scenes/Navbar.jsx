@@ -3,6 +3,7 @@ import { setMode, setLogout } from "../state/index";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { BsSunFill } from "react-icons/bs";
+import { BsMoonFill } from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
 import { DropdownMultiple, Dropdown } from "reactjs-dropdown-component";
 
@@ -10,6 +11,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const mode = useSelector((state) => state.mode);
   const locations = [
     {
       value: "newYork",
@@ -36,7 +38,11 @@ const Navbar = () => {
         </div>
       </div>
       <div className="flex">
-        <BsSunFill />
+        {mode === "light" ? (
+          <BsMoonFill onClick={() => dispatch(setMode())} />
+        ) : (
+          <BsSunFill onClick={() => dispatch(setMode())} />
+        )}
         <div></div>
       </div>
     </div>
