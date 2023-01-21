@@ -12,18 +12,13 @@ const Navbar = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const mode = useSelector((state) => state.mode);
-  const locations = [
-    {
-      value: "newYork",
-    },
-    {
-      value: "oslo",
-    },
-    {
-      value: "istanbul",
-    },
-  ];
-  const options = ["one", "two", "three"];
+  const options = [{ label: "fakeperson", value: "fakeperson" }];
+
+  const [value, setValue] = React.useState("fruit");
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
   return (
     <div className="flex justify-between bg-white p-3">
       <div className="flex space-x-3">
@@ -31,19 +26,36 @@ const Navbar = () => {
         <div className="flex bg-gray-200 justify-center items-center px-3  rounded-lg h-fit">
           <input
             type="text"
-            className="bg-gray-200 w-[140px] outline-none "
+            className="bg-gray-200 w-[140px] outline-none px-1"
             placeholder="Search..."
           />
           <AiOutlineSearch />
         </div>
       </div>
-      <div className="flex">
+      <div className="flex justify-center items-center space-x-3">
         {mode === "light" ? (
-          <BsMoonFill onClick={() => dispatch(setMode())} />
+          <BsMoonFill
+            onClick={() => dispatch(setMode())}
+            className="cursor-pointer"
+          />
         ) : (
-          <BsSunFill onClick={() => dispatch(setMode())} />
+          <BsSunFill
+            onClick={() => dispatch(setMode())}
+            className="cursor-pointer"
+          />
         )}
-        <div></div>
+        <div className="">
+          <select value={value} className="p-1 rounded-md">
+            {options.map((user) => {
+              return (
+                <>
+                  <option value={user.value}>{user.label}</option>
+                  <option value="logout">Logout</option>
+                </>
+              );
+            })}
+          </select>
+        </div>
       </div>
     </div>
   );
