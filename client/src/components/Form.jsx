@@ -107,68 +107,60 @@ const Form = () => {
       }) => (
         <>
           {isLogin && (
-            <div class="container mx-auto">
-              <div class="flex justify-center px-6 my-12">
-                <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-                  <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"></div>
+            <div className="container mx-auto">
+              <div className="flex justify-center px-6 my-12">
+                <div className="w-full xl:w-3/4 lg:w-11/12 flex">
+                  <div className="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"></div>
 
-                  <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-                    <h3 class="pt-4 text-2xl text-center">Welcome Back!</h3>
+                  <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+                    <h3 className="pt-4 text-2xl text-center">Welcome Back!</h3>
                     <form
-                      class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
+                      className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
                       onSubmit={handleSumbit}
                     >
-                      <div class="mb-4">
+                      <div className="mb-4">
                         <label
-                          class="block mb-2 text-sm font-bold text-gray-700"
-                          htmlfor="email"
+                          className="block mb-2 text-sm font-bold text-gray-700"
+                          htmlFor="email"
                         >
                           Email
                         </label>
                         <input
-                          class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                          id="username"
-                          type="text"
-                          placeholder="Username"
+                          className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                          id="email"
+                          type="email"
+                          placeholder="email"
                           onChange={handleChange}
                           value={values.email}
-                          error={
-                            Boolean(touched.email) && Boolean(errors.email)
-                          }
-                        
                         />
                       </div>
-                      <div class="mb-4">
+                      <div className="mb-4">
                         <label
-                          class="block mb-2 text-sm font-bold text-gray-700"
-                          htmlfor="password"
+                          className="block mb-2 text-sm font-bold text-gray-700"
+                          htmlFor="password"
                         >
                           Password
                         </label>
                         <input
-                          class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                          className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                           id="password"
                           type="password"
                           onChange={handleChange}
-                          error={
-                            Boolean(touched.password) &&
-                            Boolean(errors.password)
-                          }
                           placeholder="******************"
                         />
                       </div>
-                      <div class="mb-6 text-center">
+                      <div className="mb-6 text-center">
                         <button
-                          class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                          className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                           type="sumbit"
                         >
                           Sign In
                         </button>
                       </div>
-                      <hr class="mb-6 border-t" />
-                      <div class="text-center">
+                      <hr className="mb-6 border-t" />
+                      <div className="text-center">
                         <a
-                          class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                          className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
                           onClick={() => {
                             setPageType(isLogin ? "register" : "login");
                           }}
@@ -176,9 +168,9 @@ const Form = () => {
                           Create an Account!
                         </a>
                       </div>
-                      <div class="text-center">
+                      <div className="text-center">
                         <a
-                          class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                          className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
                           href="./forgot-password.html"
                         >
                           Forgot Password?
@@ -192,116 +184,99 @@ const Form = () => {
           )}
 
           {isRegister && (
-            <div class="container mx-auto h-fit">
-              <div class="flex justify-center my-12">
-                <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-                  <div class="w-full h-full bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"></div>
+            <div className="container mx-auto h-fit">
+              <div className="flex justify-center my-12">
+                <div className="w-full xl:w-3/4 lg:w-11/12 flex">
+                  <div className="w-full h-full bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"></div>
 
-                  <div class="w-full lg:w-7/12 bg-white  rounded-lg lg:rounded-l-none">
-                    <h3 class="pt-4 text-2xl text-center">
+                  <div className="w-full lg:w-7/12 bg-white  rounded-lg lg:rounded-l-none">
+                    <h3 className="pt-4 text-2xl text-center">
                       Create an Account!
                     </h3>
-                    <form class="px-3 bg-white rounded" onSubmit={handleSumbit}>
-                      <div class="mb-4 md:flex md:justify-between">
-                        <div class="">
+                    <form
+                      className="px-3 bg-white rounded"
+                      onSubmit={handleSumbit}
+                    >
+                      <div className="mb-4 md:flex md:justify-between">
+                        <div className="">
                           <label
-                            class="block mb-2 text-sm font-bold text-gray-700"
-                            htmlfor="firstName"
+                            className="block mb-2 text-sm font-bold text-gray-700"
+                            htmlFor="firstName"
                           >
                             First Name
                           </label>
                           <input
-                            class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                            className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                             id="firstName"
                             type="text"
                             placeholder="First Name"
                             onChange={handleChange}
                             value={values.firstName}
-                            error={
-                              Boolean(touched.firstName) &&
-                              Boolean(errors.firstName)
-                            }
                           />
                         </div>
-                        <div class="md:ml-2">
+                        <div className="md:ml-2">
                           <label
-                            class="block mb-2 text-sm font-bold text-gray-700"
-                            htmlfor="lastName"
+                            className="block mb-2 text-sm font-bold text-gray-700"
+                            htmlFor="lastName"
                           >
                             Last Name
                           </label>
                           <input
-                            class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                            className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                             id="lastName"
                             type="text"
                             onChange={handleChange}
                             placeholder="Last Name"
-                            error={
-                              Boolean(touched.lastName) &&
-                              Boolean(errors.lastName)
-                            }
-                            
                             value={values.lastName}
                           />
                         </div>
                       </div>
-                      <div class="mb-4">
+                      <div className="mb-4">
                         <label
-                          class="block mb-2 text-sm font-bold text-gray-700"
-                          htmlfor="email"
+                          className="block mb-2 text-sm font-bold text-gray-700"
+                          htmlFor="email"
                         >
                           Email
                         </label>
                         <input
-                          class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                          className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                           id="email"
                           onChange={handleChange}
                           value={values.email}
-                          error={
-                            Boolean(touched.email) && Boolean(errors.email)
-                          }
                           type="email"
                           placeholder="Email"
                         />
                       </div>
-                      <div class="mb-4">
+                      <div className="mb-4">
                         <label
-                          class="block mb-2 text-sm font-bold text-gray-700"
-                          htmlfor="location"
+                          className="block mb-2 text-sm font-bold text-gray-700"
+                          htmlFor="location"
                         >
                           Location
                         </label>
                         <input
-                          class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                          className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                           id="location"
                           type="text"
                           placeholder="location"
                           onChange={handleChange}
                           value={values.loacation}
-                          error={
-                            Boolean(touched.loacation) &&
-                            Boolean(errors.loacation)
-                          }
                         />
                       </div>
-                      <div class="mb-4">
+                      <div className="mb-4">
                         <label
-                          class="block mb-2 text-sm font-bold text-gray-700"
-                          htmlfor="occupation"
+                          className="block mb-2 text-sm font-bold text-gray-700"
+                          htmlFor="occupation"
                         >
                           Occupation
                         </label>
                         <input
-                          class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                          className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                           id="occupation"
                           type="text"
                           placeholder="occupation"
                           onChange={handleChange}
                           value={values.occupation}
-                          error={
-                            Boolean(touched.occupation) &&
-                            Boolean(errors.occupation)
-                          }
                         />
                       </div>
                       <div className="p-4">
@@ -326,39 +301,35 @@ const Form = () => {
                           )}
                         </Dropzone>
                       </div>
-                      <div class="mb-4 md:flex md:justify-between">
-                        <div class="mb-4 md:mr-2 md:mb-0">
+                      <div className="mb-4 md:flex md:justify-between">
+                        <div className="mb-4 md:mr-2 md:mb-0">
                           <label
-                            class="block mb-2 text-sm font-bold text-gray-700"
-                            htmlfor="password"
+                            className="block mb-2 text-sm font-bold text-gray-700"
+                            htmlFor="password"
                           >
                             Password
                           </label>
                           <input
-                            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                            className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                             id="password"
                             type="password"
                             onChange={handleChange}
-                            error={
-                              Boolean(touched.password) &&
-                              Boolean(errors.password)
-                            }
                             placeholder="******************"
                           />
                         </div>
                       </div>
-                      <div class="mb-6 text-center">
+                      <div className="mb-6 text-center">
                         <button
-                          class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                          className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                           type="sumbit"
                         >
                           Register Account
                         </button>
                       </div>
-                      <hr class="mb-6 border-t" />
-                      <div class="text-center">
+                      <hr className="mb-6 border-t" />
+                      <div className="text-center">
                         <a
-                          class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                          className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
                           onClick={() => {
                             setPageType(isLogin ? "register" : "login");
                             resetFrom();
