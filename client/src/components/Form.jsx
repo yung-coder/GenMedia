@@ -4,19 +4,16 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogin } from "../state/index";
-import dropzone from "react-dropdown";
+import Dropzone from "react-dropzone";
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
   email: yup.string().email("invalid email").required("required"),
   password: yup.string().required("required"),
-  picturePath: yup.string().required("required"),
-  friends: yup.string().required("required"),
-  loacation: yup.string().required("required"),
+  location: yup.string().required("required"),
   occupation: yup.string().required("required"),
-  viewwdProfile: yup.string().required("required"),
-  impressions: yup.string().required("required"),
+  picture: yup.string().required("required"),
 });
 
 const loginSchema = yup.object().shape({
@@ -29,12 +26,9 @@ const initialRegisterValue = {
   lastName: "",
   email: "",
   password: "",
-  picturePath: "",
-  friends: "",
-  loacation: "",
+  location: "",
   occupation: "",
-  viewwdProfile: "",
-  impressions: "",
+  picture: "",
 };
 
 const initialLoginValue = {
@@ -49,11 +43,11 @@ const Form = () => {
   const isLogin = PageType === "login";
   const isRegister = PageType === "register";
 
-  const handelSumbit = async (values, onSumbitProps) => {};
+  const handleFormSubmit = async (values, onSumbitProps) => {};
 
   return (
     <Formik
-      onSubmit={handelSumbit}
+      onSubmit={handleFormSubmit}
       initialValues={isLogin ? initialLoginValue : initialRegisterValue}
       validationSchema={isLogin ? loginSchema : registerSchema}
     >
@@ -76,19 +70,28 @@ const Form = () => {
 
                   <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
                     <h3 class="pt-4 text-2xl text-center">Welcome Back!</h3>
-                    <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                    <form
+                      class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
+                      onSubmit={handleSumbit}
+                    >
                       <div class="mb-4">
                         <label
                           class="block mb-2 text-sm font-bold text-gray-700"
-                          for="username"
+                          for="email"
                         >
-                          Username
+                          Email
                         </label>
                         <input
                           class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                           id="username"
                           type="text"
                           placeholder="Username"
+                          onChange={handleChange}
+                          value={values.email}
+                          error={
+                            Boolean(touched.email) && Boolean(errors.email)
+                          }
+                          helperText={touched.email && errors.email}
                         />
                       </div>
                       <div class="mb-4">
@@ -102,13 +105,19 @@ const Form = () => {
                           class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                           id="password"
                           type="password"
+                          onChange={handleChange}
+                          error={
+                            Boolean(touched.password) &&
+                            Boolean(errors.password)
+                          }
+                          helperText={touched.password && errors.password}
                           placeholder="******************"
                         />
                       </div>
                       <div class="mb-6 text-center">
                         <button
                           class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                          type="button"
+                          type="sumbit"
                         >
                           Sign In
                         </button>
@@ -119,7 +128,7 @@ const Form = () => {
                           class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
                           onClick={() => {
                             setPageType(isLogin ? "register" : "login");
-                            resetForm();
+                            resetFrom();
                           }}
                         >
                           Create an Account!
@@ -141,18 +150,18 @@ const Form = () => {
           )}
 
           {isRegister && (
-            <div class="container mx-auto">
-              <div class="flex justify-center px-6 my-12">
+            <div class="container mx-auto h-fit">
+              <div class="flex justify-center my-12">
                 <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-                  <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"></div>
+                  <div class="w-full h-full bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"></div>
 
-                  <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+                  <div class="w-full lg:w-7/12 bg-white  rounded-lg lg:rounded-l-none">
                     <h3 class="pt-4 text-2xl text-center">
                       Create an Account!
                     </h3>
-                    <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                    <form class="px-3 bg-white rounded" onSubmit={handleSumbit}>
                       <div class="mb-4 md:flex md:justify-between">
-                        <div class="mb-4 md:mr-2 md:mb-0">
+                        <div class="">
                           <label
                             class="block mb-2 text-sm font-bold text-gray-700"
                             for="firstName"
@@ -164,6 +173,8 @@ const Form = () => {
                             id="firstName"
                             type="text"
                             placeholder="First Name"
+                            onChange={handleChange}
+                            value={values.firstName}
                             error={
                               Boolean(touched.firstName) &&
                               Boolean(errors.firstName)
@@ -182,9 +193,14 @@ const Form = () => {
                             class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                             id="lastName"
                             type="text"
+                            onChange={handleChange}
                             placeholder="Last Name"
-                            error={Boolean(touched.lastName) && Boolean(errors.lastName)}
+                            error={
+                              Boolean(touched.lastName) &&
+                              Boolean(errors.lastName)
+                            }
                             helperText={touched.lastName && errors.lastName}
+                            value={values.lastName}
                           />
                         </div>
                       </div>
@@ -198,9 +214,79 @@ const Form = () => {
                         <input
                           class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                           id="email"
+                          onChange={handleChange}
+                          value={values.email}
+                          error={
+                            Boolean(touched.email) && Boolean(errors.email)
+                          }
+                          helperText={touched.email && errors.email}
                           type="email"
                           placeholder="Email"
                         />
+                      </div>
+                      <div class="mb-4">
+                        <label
+                          class="block mb-2 text-sm font-bold text-gray-700"
+                          for="location"
+                        >
+                          Location
+                        </label>
+                        <input
+                          class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                          id="location"
+                          type="text"
+                          placeholder="location"
+                          onChange={handleChange}
+                          helperText={touched.loacation && errors.loacation}
+                          value={values.loacation}
+                          error={
+                            Boolean(touched.loacation) &&
+                            Boolean(errors.loacation)
+                          }
+                        />
+                      </div>
+                      <div class="mb-4">
+                        <label
+                          class="block mb-2 text-sm font-bold text-gray-700"
+                          for="occupation"
+                        >
+                          Occupation
+                        </label>
+                        <input
+                          class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                          id="occupation"
+                          type="text"
+                          placeholder="occupation"
+                          onChange={handleChange}
+                          helperText={touched.occupation && errors.occupation}
+                          value={values.occupation}
+                          error={
+                            Boolean(touched.occupation) &&
+                            Boolean(errors.occupation)
+                          }
+                        />
+                      </div>
+                      <div className="p-4">
+                        <Dropzone
+                          acceptedFiles=".jpg,.jpeg,.png"
+                          multiple={false}
+                          onDrop={(acceptedFiles) =>
+                            setFieldValue("picture", acceptedFiles[0])
+                          }
+                        >
+                          {({ getRootProps, getInputProps }) => (
+                            <div {...getRootProps()} className="border">
+                              <input {...getInputProps()} />
+                              {!values.picture ? (
+                                <p>Add picture here</p>
+                              ) : (
+                                <div>
+                                  <h1>{values.picture.name}</h1>
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </Dropzone>
                       </div>
                       <div class="mb-4 md:flex md:justify-between">
                         <div class="mb-4 md:mr-2 md:mb-0">
@@ -211,26 +297,15 @@ const Form = () => {
                             Password
                           </label>
                           <input
-                            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                             id="password"
                             type="password"
-                            placeholder="******************"
-                          />
-                          <p class="text-xs italic text-red-500">
-                            Please choose a password.
-                          </p>
-                        </div>
-                        <div class="md:ml-2">
-                          <label
-                            class="block mb-2 text-sm font-bold text-gray-700"
-                            for="c_password"
-                          >
-                            Confirm Password
-                          </label>
-                          <input
-                            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                            id="c_password"
-                            type="password"
+                            onChange={handleChange}
+                            error={
+                              Boolean(touched.password) &&
+                              Boolean(errors.password)
+                            }
+                            helperText={touched.password && errors.password}
                             placeholder="******************"
                           />
                         </div>
@@ -238,7 +313,7 @@ const Form = () => {
                       <div class="mb-6 text-center">
                         <button
                           class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                          type="button"
+                          type="sumbit"
                         >
                           Register Account
                         </button>
@@ -247,17 +322,9 @@ const Form = () => {
                       <div class="text-center">
                         <a
                           class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                          href="#"
-                        >
-                          Forgot Password?
-                        </a>
-                      </div>
-                      <div class="text-center">
-                        <a
-                          class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
                           onClick={() => {
                             setPageType(isLogin ? "register" : "login");
-                            resetForm();
+                            resetFrom();
                           }}
                         >
                           Already have an account? Login!

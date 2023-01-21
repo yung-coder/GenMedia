@@ -9,7 +9,7 @@ const index = () => {
           GenPedia
         </h1>
       </div>
-      <div className="mt-20">
+      <div className="mt-16">
         <Form />
       </div>
     </>
