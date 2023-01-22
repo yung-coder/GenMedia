@@ -34,7 +34,7 @@ const Navbar = () => {
     <>
       <div className="flex justify-between bg-white p-3">
         <div className="flex space-x-3">
-          <h1>GenPedia</h1>
+          <h1 className="text-black">GenPedia</h1>
           <div className="hidden md:flex bg-gray-200 justify-center items-center px-3  rounded-lg h-fit">
             <input
               type="text"
@@ -74,7 +74,7 @@ const Navbar = () => {
         </div>
       </div>
       <div
-        className="bg-white absolute hidden flex-col justify-center items-center rounded-md right-1 top-16 p-5 w-fit space-y-3 md:hidden"
+        className=" absolute hidden  flex-col justify-center items-center rounded-md right-1 top-16 p-5 w-fit space-y-3 md:hidden"
         ref={Hammenu}
       >
         {mode === "light" ? (
