@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import "./index.css";
-import LoginPage from "./scenes/LoginPage";
 import HomePage from "./scenes/HomePage";
 import ProfilePage from "./scenes/ProfilePage";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,6 +7,7 @@ import { createTheme, CssBaseline } from "@mui/material";
 import { themeSettings } from "./muiComps/theme";
 import { ThemeProvider } from "@mui/material";
 import { useMemo } from "react";
+import AuthSection from "./scenes/AuthSection";
 
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -21,7 +21,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/" element={<AuthSection />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/profile/:userId" element={<ProfilePage />} />
         </Routes>

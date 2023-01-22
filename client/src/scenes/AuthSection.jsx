@@ -1,8 +1,6 @@
 import React from "react";
-import Form from "../components/Form";
-import Forms from "../components/Froms";
-
-const index = () => {
+import Login from './Login';
+const AuthSection = () => {
   return (
     <>
       <div className="bg-slate-300 flex justify-center items-center p-1">
@@ -11,10 +9,10 @@ const index = () => {
         </h1>
       </div>
       <div className="mt-16">
-        <Forms />
+        <Login />
       </div>
     </>
   );
 };
 
-export default index;
+export default AuthSection;
