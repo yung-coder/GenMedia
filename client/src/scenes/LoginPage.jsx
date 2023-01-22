@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "../components/Form";
+import Forms from "../components/Froms";
 
 const index = () => {
   return (
@@ -10,7 +11,7 @@ const index = () => {
         </h1>
       </div>
       <div className="mt-16">
-        <Form />
+        <Forms />
       </div>
     </>
   );
