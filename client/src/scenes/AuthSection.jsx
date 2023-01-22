@@ -1,5 +1,6 @@
 import React from "react";
 import Login from './Login';
+import Register from './Register';
 const AuthSection = () => {
   return (
     <>
@@ -9,7 +10,7 @@ const AuthSection = () => {
         </h1>
       </div>
       <div className="mt-16">
-        <Login />
+         <Register />
       </div>
     </>
   );
