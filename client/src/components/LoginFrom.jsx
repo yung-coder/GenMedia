@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginFrom = () => {
   const [inputs, setinputs] = useState({});
+  const navigate = useNavigate();
 
   const getinputs = (data) => {
     const { value, name } = data.target;
@@ -61,7 +63,7 @@ const LoginFrom = () => {
               <div class="text-center">
                 <a
                   class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                  href="./register.html"
+                  onClick={() => navigate('/register')}                
                 >
                   Create an Account!
                 </a>

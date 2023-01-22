@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Dropzone from "react-dropzone";
+import { useNavigate } from "react-router-dom";
 
 const RegisterFrom = () => {
   const [inputs, setinputs] = useState({});
+  const navigate = useNavigate();
 
   const getinputs = (data) => {
     const { value, name } = data.target;
@@ -150,7 +152,7 @@ const RegisterFrom = () => {
               <div class="text-center">
                 <a
                   class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                  href="./index.html"
+                  onClick={() => navigate('/login')}  
                 >
                   Already have an account? Login!
                 </a>

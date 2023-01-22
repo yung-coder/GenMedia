@@ -7,7 +7,10 @@ import { createTheme, CssBaseline } from "@mui/material";
 import { themeSettings } from "./muiComps/theme";
 import { ThemeProvider } from "@mui/material";
 import { useMemo } from "react";
-import AuthSection from "./scenes/AuthSection";
+import AuthSection from "./scenes/Header";
+import Login from "./scenes/Login";
+import Register from "./scenes/Register";
+import Welcome from "./scenes/Welcome";
 
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -21,7 +24,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Routes>
-          <Route path="/" element={<AuthSection />} />
+          <Route path="/" element={<Welcome />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/profile/:userId" element={<ProfilePage />} />
         </Routes>
