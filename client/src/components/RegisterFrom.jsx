@@ -11,6 +11,40 @@ const RegisterFrom = () => {
     const input = { [name]: value };
     setinputs({ ...inputs, ...input });
   };
+
+  const register = async (e) => {
+    // this allows us to send form info with image
+    e.preventDefault();
+    try {
+      const formData = new FormData();
+      for (let value in inputs) {
+        formData.append(value, inputs[value]);
+      }
+
+      const savedUserResponse = await fetch(
+        "http://localhost:3001/auth/register",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const savedUser = await savedUserResponse.json();
+      if (savedUser) {
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log(error.msg);
+    }
+  };
+
+  const demo = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    for (let value in inputs) {
+      formData.append(value, inputs[value]);
+    }
+    console.log(formData);
+  };
   return (
     <div class="container mx-auto">
       <div class="flex justify-center px-6 my-12">
@@ -19,7 +53,10 @@ const RegisterFrom = () => {
 
           <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
             <h3 class="pt-4 text-2xl text-center">Create an Account!</h3>
-            <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+            <form
+              class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
+              onSubmit={register}
+            >
               <div class="mb-4 md:flex md:justify-between">
                 <div class="mb-4 md:mr-2 md:mb-0">
                   <label
@@ -143,7 +180,7 @@ const RegisterFrom = () => {
               <div class="mb-6 text-center">
                 <button
                   class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                  type="button"
+                  type="sumbit"
                 >
                   Register Account
                 </button>
@@ -152,7 +189,7 @@ const RegisterFrom = () => {
               <div class="text-center">
                 <a
                   class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                  onClick={() => navigate('/login')}  
+                  onClick={() => navigate("/login")}
                 >
                   Already have an account? Login!
                 </a>
