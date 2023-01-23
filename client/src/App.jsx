@@ -12,7 +12,7 @@ function App() {
   const isAuth = Boolean(useSelector((state) => state.token));
   return (
     <div
-      className={`h-screen w-screen ${
+      className={`min-h-screen w-screen ${
         mode === "light" ? "bg-gray-200" : "bg-black"
       } `}
     >
