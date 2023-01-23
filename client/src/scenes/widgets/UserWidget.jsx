@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setLogin } from "../../state/index";
+import UserImage from "../../components/UserImage";
+
 const UserWidget = ({ userId, picturePath }) => {
+  console.log(typeof picturePath);
   const [user, setuser] = useState();
   const navigate = useNavigate();
   const token = useSelector((state) => state.token);
@@ -37,7 +40,16 @@ const UserWidget = ({ userId, picturePath }) => {
 
   return (
     <div>
-      <h1>{firstName}</h1>
+      <div className="flex flex-col">
+        <div>
+          <UserImage image={picturePath}/>
+        </div>
+        <div>
+            {firstName}
+        </div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
   );
 };
