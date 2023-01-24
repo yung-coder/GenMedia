@@ -44,27 +44,32 @@ const UserWidget = ({ userId, picturePath }) => {
 
   return (
     <div className="w-fit">
-      <div className="flex flex-col border justify-center items-center p-5 bg-white rounded-xl">
+      <div className="flex flex-col border justify-center items-center p-5 bg-white rounded-xl shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
         <div className="flex justify-center items-center space-x-4 p-5">
           <div className="flex justify-center items-center">
             <UserImage image={picturePath} />
           </div>
           <div className="flex flex-col space-y-2 text-black">
-            {firstName}
+            <div className="flex space-x-2">
+              <h1>{firstName}</h1>
+              <h1>{lastName}</h1>
+            </div>
             <AiOutlineUserAdd color="black" />
           </div>
         </div>
-        <div className="flex flex-col  space-y-3 p-5">
+        <hr className="border border-black w-28" />
+        <div className="flex flex-col justify-center items-center  space-y-3 p-6">
           <div className="flex space-x-4">
-            <h1 className="text-gray-400">Impressions</h1>
+            <h1 className="text-gray-500">Impressions</h1>
             <h1 className="text-black">{impressions}</h1>
           </div>
           <div className="flex space-x-4">
-            <h1 className="text-gray-400">Profle Views</h1>
+            <h1 className="text-gray-500">Profle Views</h1>
             <h1 className="text-black">{viewwdProfile}</h1>
           </div>
         </div>
-        <div className="flex space-x-4 justify-center items-center p-5">
+        <hr className="border border-black w-28" />
+        <div className="flex space-x-5 justify-center items-center p-6">
           <div className="flex flex-col space-y-3 justify-center items-center">
             <GrLocation />
             <h1 className="text-black">{loacation}</h1>
@@ -73,7 +78,7 @@ const UserWidget = ({ userId, picturePath }) => {
             <MdWorkOutline color="black" />
             <h1 className="text-black">{occupation}</h1>
           </div>
-          <div className="flex flex-col space-y-3 justify-center items-center">
+          <div className="flex flex-col space-y-2 justify-center items-center">
             <h1 className="text-black">{friends.length}</h1>
             <h1 className="text-black">Friends</h1>
           </div>
