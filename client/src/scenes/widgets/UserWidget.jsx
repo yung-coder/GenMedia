@@ -6,6 +6,7 @@ import UserImage from "../../components/UserImage";
 import design from "../../../public/design.jpg";
 import { GrLocation } from "react-icons/gr";
 import { MdWorkOutline } from "react-icons/md";
+import { AiOutlineUserAdd } from "react-icons/ai";
 
 const UserWidget = ({ userId, picturePath }) => {
   console.log(typeof picturePath);
@@ -44,13 +45,16 @@ const UserWidget = ({ userId, picturePath }) => {
   return (
     <div className="w-fit">
       <div className="flex flex-col border justify-center items-center p-5 bg-white rounded-xl">
-        <div className="flex justify-center items-center">
-          <UserImage image={picturePath} />
+        <div className="flex justify-center items-center space-x-4 p-5">
+          <div className="flex justify-center items-center">
+            <UserImage image={picturePath} />
+          </div>
+          <div className="flex flex-col space-y-2 text-black">
+            {firstName}
+            <AiOutlineUserAdd color="black" />
+          </div>
         </div>
-        <div className="flex justify-center items-center text-black">
-          {firstName}
-        </div>
-        <div className="flex flex-col p-2 space-y-3">
+        <div className="flex flex-col  space-y-3 p-5">
           <div className="flex space-x-4">
             <h1 className="text-gray-400">Impressions</h1>
             <h1 className="text-black">{impressions}</h1>
@@ -60,7 +64,7 @@ const UserWidget = ({ userId, picturePath }) => {
             <h1 className="text-black">{viewwdProfile}</h1>
           </div>
         </div>
-        <div className="flex space-x-4 justify-center items-center p-2">
+        <div className="flex space-x-4 justify-center items-center p-5">
           <div className="flex flex-col space-y-3 justify-center items-center">
             <GrLocation />
             <h1 className="text-black">{loacation}</h1>
@@ -68,6 +72,10 @@ const UserWidget = ({ userId, picturePath }) => {
           <div className="flex flex-col space-y-3 justify-center items-center">
             <MdWorkOutline color="black" />
             <h1 className="text-black">{occupation}</h1>
+          </div>
+          <div className="flex flex-col space-y-3 justify-center items-center">
+            <h1 className="text-black">{friends.length}</h1>
+            <h1 className="text-black">Friends</h1>
           </div>
         </div>
       </div>
