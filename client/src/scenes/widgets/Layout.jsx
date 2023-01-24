@@ -6,7 +6,7 @@ const Layout = () => {
   const { _id, picturePath } = useSelector((state) => state.user);
   return (
     <div className="h-screen text-white flex flex-col md:flex md:flex-row w-screen ">
-      <div className="border w-full flex justify-center items-center">
+      <div className="border w-full flex justify-start ">
         <UserWidget userId={_id} picturePath={picturePath} />
       </div>
       <div className="border w-full ">check</div>
