@@ -6,7 +6,6 @@ import { BsSunFill } from "react-icons/bs";
 import { BsMoonFill } from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { DropdownMultiple, Dropdown } from "reactjs-dropdown-component";
 import { useRef } from "react";
 
 const Navbar = () => {
@@ -15,10 +14,10 @@ const Navbar = () => {
   const user = useSelector((state) => state.user);
   const mode = useSelector((state) => state.mode);
   const [open, setopen] = useState(false);
-  const options = [{ label: "fakeperson", value: "fakeperson" }];
+  const options = [{ label: `${user.firstName}`, value: `${user.firstName}` }];
   const Hammenu = useRef(0);
 
-  const [value, setValue] = React.useState("fruit");
+  const [value, setValue] = React.useState("");
 
   const handelToogle = () => {
     console.log("clicked");

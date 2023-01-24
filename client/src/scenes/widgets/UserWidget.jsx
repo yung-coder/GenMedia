@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setLogin } from "../../state/index";
 import UserImage from "../../components/UserImage";
-import design from "../../../public/design.jpg";
 import { GrLocation } from "react-icons/gr";
 import { MdWorkOutline } from "react-icons/md";
 import { AiOutlineUserAdd } from "react-icons/ai";
