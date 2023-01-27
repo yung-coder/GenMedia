@@ -11,7 +11,7 @@ const Layout = () => {
       <div className="w-[600px] flex justify-center md:justify-start ">
         <UserWidget userId={_id} picturePath={picturePath} />
       </div>
-      <div className=" w-full  flex flex-col space-y-5 ">
+      <div className="w-[800px] p-5  flex flex-col space-y-5 ">
         <PostInput picturePath={picturePath} />
         <Posts
           userId={_id}

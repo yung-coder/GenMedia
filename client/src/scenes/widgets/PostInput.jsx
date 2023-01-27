@@ -29,6 +29,7 @@ const PostInput = ({ picturePath }) => {
     formData.append("userID", _id);
     formData.append("description", post);
     if (image) {
+      formData.append("picture", image[0].name);
       formData.append("picturePath", image[0].path);
     }
 
@@ -51,6 +52,7 @@ const PostInput = ({ picturePath }) => {
     formData.append("userId", _id);
     formData.append("description", post);
     if (image) {
+      formData.append("picture", image[0].name);
       formData.append("picturePath", image[0].path);
     }
 
