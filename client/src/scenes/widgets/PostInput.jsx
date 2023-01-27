@@ -26,7 +26,7 @@ const PostInput = ({ picturePath }) => {
 
   const handlePost = async () => {
     const formData = new FormData();
-    formData.append("userId", _id);
+    formData.append("userID", _id);
     formData.append("description", post);
     if (image) {
       formData.append("picturePath", image[0].path);
