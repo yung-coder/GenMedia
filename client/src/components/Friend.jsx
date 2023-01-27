@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { setFriends } from "../state/index";
 import UserImage from "./UserImage";
 import { IoMdPersonAdd } from "react-icons/io";
-import { IoPersonRemoveSharp } from "react-icons/io";
+import { IoPersonRemoveSharp } from "react-icons/io5";
 
 const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const dispatch = useDispatch();
@@ -30,23 +30,15 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     dispatch(setFriends({ friends: data }));
   };
   return (
-    <div className="flex">
-      <div
-        className="flex justify-center items-center"
-        onClick={() => {
-          navigate(`/profile/${friendId}`);
-          navigate(0);
-        }}
-      >
+    <div className="flex  items-center">
+      <div className="flex space-x-2 items-center">
         <UserImage image={userPicturePath} />
-        <div>
+        <div className="flex flex-col space-y-1">
           <h1>{name}</h1>
-          <h1>{subtitle}</h1>
+          <h2>{subtitle}</h2>
         </div>
       </div>
-      <div onClick={() => patchFriend()}>
-        {isFriend ? <IoPersonRemoveSharp /> : <IoMdPersonAdd />}
-      </div>
+      <div>{isFriend ? <IoPersonRemoveSharp /> : <IoMdPersonAdd />}</div>
     </div>
   );
 };
