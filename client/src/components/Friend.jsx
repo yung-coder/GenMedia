@@ -30,7 +30,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     dispatch(setFriends({ friends: data }));
   };
   return (
-    <div className="flex  items-center">
+    <div className="flex  justify-between  items-center">
       <div className="flex space-x-2 items-center">
         <UserImage image={userPicturePath} />
         <div className="flex flex-col space-y-1">

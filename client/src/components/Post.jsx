@@ -16,17 +16,18 @@ const Post = ({
   comments,
 }) => {
   return (
-    <div className="flex flex-col w-fit  text-black">
-        <Friend
-          friendId={postUserId}
-          name={name}
-          subtitle={location}
-          userPicturePath={userPicturePath}
-        />
+    <div className="flex flex-col space-y-4   text-black bg-white p-5 w-96 rounded-xl">
+      <Friend
+        friendId={postUserId}
+        name={name}
+        subtitle={location}
+        userPicturePath={userPicturePath}
+      />
+      <div className="flex flex-col justify-center items-center ">
         <div>
           <p>{description}</p>
         </div>
-        <div className="w-[50%] h-[50%]">
+        <div>
           {picturePath && (
             <img
               width="100%"
@@ -37,6 +38,7 @@ const Post = ({
             />
           )}
         </div>
+      </div>
     </div>
   );
 };

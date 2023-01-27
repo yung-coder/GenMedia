@@ -38,36 +38,40 @@ const Posts = ({ userId, profilePage, setProfilePage }) => {
     }
   }, []);
   return (
-    <div className=" overflow-auto h-[700px] ">
-      {posts.map(
-        ({
-          _id,
-          userId,
-          firstName,
-          lastName,
-          description,
-          location,
-          picturePath,
-          userPicturePath,
-          likes,
-          comments,
-        }) => (
-          <div className="flex justify-center items-center p-5 bg-white">
-            <Post
-              key={_id}
-              postId={_id}
-              postUserId={userId}
-              name={`${firstName} ${lastName}`}
-              description={description}
-              location={location}
-              picturePath={picturePath}
-              userPicturePath={userPicturePath}
-              likes={likes}
-              comments={comments}
-            />
-          </div>
-        )
-      )}
+    <div className="overflow-auto">
+      <div className="flex flex-col justify-center items-center p-5">
+        {posts.map(
+          ({
+            _id,
+            userId,
+            firstName,
+            lastName,
+            description,
+            location,
+            picturePath,
+            userPicturePath,
+            likes,
+            comments,
+          }) => (
+            <>
+              <div className="p-3">
+                <Post
+                  key={_id}
+                  postId={_id}
+                  postUserId={userId}
+                  name={`${firstName} ${lastName}`}
+                  description={description}
+                  location={location}
+                  picturePath={picturePath}
+                  userPicturePath={userPicturePath}
+                  likes={likes}
+                  comments={comments}
+                />
+              </div>
+            </>
+          )
+        )}
+      </div>
     </div>
   );
 };
