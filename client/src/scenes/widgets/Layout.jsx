@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import PostInput from "./PostInput";
 import UserWidget from "./UserWidget";
 
 const Layout = () => {
@@ -9,7 +10,9 @@ const Layout = () => {
       <div className="border w-full flex justify-center md:justify-start ">
         <UserWidget userId={_id} picturePath={picturePath} />
       </div>
-      <div className="border w-full ">post</div>
+      <div className="border w-full  p-5">
+        <PostInput picturePath={picturePath}/>
+      </div>
       <div className="border w-full">check</div>
     </div>
   );
