@@ -26,19 +26,21 @@ const FriendsWidgets = ({ userID }) => {
 
   console.log(friends);
   return (
-    <div className="bg-white w-full flex flex-col">
+    <div className="bg-white w-full h-fit flex flex-col rounded-lg p-4">
       <div className="flex">
-        <h1 className="text-black">Friends</h1>
+        <h1 className="text-black font-bold">Friends</h1>
       </div>
-      <div className="bg-white">
+      <div className="mt-2">
         {friends.map((friend) => (
-          <Friend
-            key={friend._id}
-            friendId={friend._id}
-            name={`${friend.firstName} ${friend.lastName}`}
-            subtitle={friend.occupation}
-            userPicturePath={friend.picturePath}
-          />
+          <div className="p-4">
+            <Friend
+              key={friend._id}
+              friendId={friend._id}
+              name={`${friend.firstName} ${friend.lastName}`}
+              subtitle={friend.occupation}
+              userPicturePath={friend.picturePath}
+            />
+          </div>
         ))}
       </div>
     </div>

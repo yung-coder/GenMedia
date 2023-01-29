@@ -20,7 +20,7 @@ const Layout = () => {
           setProfilePage={setProfilePage}
         />
       </div>
-      <div>
+      <div className="flex justify-center w-[400px] p-5">
         <FriendsWidgets userID={_id} />
       </div>
     </div>
