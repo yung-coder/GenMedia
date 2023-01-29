@@ -10,7 +10,7 @@ import { AiOutlineComment } from "react-icons/ai";
 const Post = ({
   key,
   postId,
-  postUserId,
+  postUserID,
   name,
   description,
   location,
@@ -33,7 +33,7 @@ const Post = ({
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userId: loggedInUserId }),
+      body: JSON.stringify({ userID: loggedInUserId }),
     });
     const updatedPost = await response.json();
     dispatch(setPost({ post: updatedPost }));
@@ -41,7 +41,7 @@ const Post = ({
   return (
     <div className="flex flex-col space-y-4   text-black bg-white p-5 w-96 rounded-xl">
       <Friend
-        friendId={postUserId}
+        friendId={postUserID}
         name={name}
         subtitle={location}
         userPicturePath={userPicturePath}

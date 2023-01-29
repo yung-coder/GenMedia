@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Post from "../../components/Post";
 import { setPosts } from "../../state/index";
 
-const Posts = ({ userId, profilePage, setProfilePage }) => {
+const Posts = ({ userID, profilePage, setProfilePage }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
@@ -20,7 +20,7 @@ const Posts = ({ userId, profilePage, setProfilePage }) => {
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `http://localhost:3001/posts/${userId}/posts`,
+      `http://localhost:3001/posts/${userID}/posts`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
@@ -43,7 +43,7 @@ const Posts = ({ userId, profilePage, setProfilePage }) => {
         {posts.map(
           ({
             _id,
-            userId,
+            userID,
             firstName,
             lastName,
             description,
@@ -58,7 +58,7 @@ const Posts = ({ userId, profilePage, setProfilePage }) => {
                 <Post
                   key={_id}
                   postId={_id}
-                  postUserId={userId}
+                  postUserId={userID}
                   name={`${firstName} ${lastName}`}
                   description={description}
                   location={location}

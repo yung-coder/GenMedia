@@ -14,7 +14,7 @@ const Layout = () => {
       <div className="w-[800px] p-5  flex flex-col space-y-5 ">
         <PostInput picturePath={picturePath} />
         <Posts
-          userId={_id}
+          userID={_id}
           profilePage={profilePage}
           setProfilePage={setProfilePage}
         />
