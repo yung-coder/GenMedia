@@ -39,8 +39,8 @@ const Posts = ({ userId, profilePage, setProfilePage }) => {
   }, []);
 
   return (
-    <div className="overflow-auto border-t-2 border-[#FFE5B4] w-full">
-      <div className="flex flex-col justify-center items-center p-9">
+    <div className="overflow-auto  w-full">
+      <div className="flex flex-col justify-center items-center p-16">
         {posts.map((post) => (
           <div className="p-4">
             <Post

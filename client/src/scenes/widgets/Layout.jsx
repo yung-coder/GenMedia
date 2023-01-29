@@ -4,6 +4,7 @@ import PostInput from "./PostInput";
 import UserWidget from "./UserWidget";
 import Posts from "../widgets/Posts";
 import FriendsWidgets from "./FriendsWidgets";
+import Promotions from "./Promotions";
 const Layout = () => {
   const { _id, picturePath } = useSelector((state) => state.user);
   const [profilePage, setProfilePage] = useState(false);
@@ -12,7 +13,7 @@ const Layout = () => {
       <div className="w-[480px] flex justify-center md:justify-start border">
         <UserWidget userId={_id} picturePath={picturePath} />
       </div>
-      <div className="w-[800px] p-3  flex  justify-center items-center flex-col space-y-5 border">
+      <div className="w-[800px] p-5  flex  justify-center items-center flex-col space-y-5 border">
         <PostInput picturePath={picturePath} />
         <Posts
           userId={_id}
@@ -20,8 +21,9 @@ const Layout = () => {
           setProfilePage={setProfilePage}
         />
       </div>
-      <div className="flex justify-center w-[400px] p-5">
+      <div className="flex justify-center w-[400px] p-5  flex-col items-center space-y-8 p-7">
         <FriendsWidgets userID={_id} />
+        <Promotions />
       </div>
     </div>
   );

@@ -41,7 +41,7 @@ const Post = ({
   };
 
   return (
-    <div className="flex flex-col space-y-4   text-black bg-[#FAF9F6] p-5 w-96 rounded-xl ">
+    <div className="flex flex-col space-y-4   text-black bg-[#FFFDD0] p-5 w-[450px] rounded-xl shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">
       <Friend
         friendId={postUserID}
         name={name}
@@ -52,13 +52,14 @@ const Post = ({
         <div>
           <p>{description}</p>
         </div>
-        <div>
+        <div className="">
           {picturePath && (
             <img
               width="100%"
               height="auto"
               alt="post"
               src={`http://localhost:3001/assets/${picturePath}`}
+              className="rounded-lg"
             />
           )}
         </div>

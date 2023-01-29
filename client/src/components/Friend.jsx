@@ -29,7 +29,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     dispatch(setFriends({ friends: data }));
   };
   return (
-    <div className="flex  justify-between  items-center">
+    <div className="flex  justify-between  items-center p-1 ">
       <div
         className="flex space-x-2 items-center"
         onClick={() => {
@@ -44,9 +44,13 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
       </div>
       <div onClick={() => patchFriend()} className="cursor-pointer">
         {isFriend ? (
-          <IoPersonRemoveSharp color="black" />
+          <div className="rounded-full bg-sky-400 p-3">
+            <IoPersonRemoveSharp color="black" />
+          </div>
         ) : (
-          <IoMdPersonAdd color="black" />
+          <div className="rounded-full bg-sky-400 p-3">
+            <IoMdPersonAdd color="black" />
+          </div>
         )}
       </div>
     </div>
