@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { FcLike } from "react-icons/fc";
 import { AiOutlineComment } from "react-icons/ai";
+import { setPost } from "../state";
 
 const Post = ({
   key,
@@ -25,7 +26,7 @@ const Post = ({
   const loggedInUserId = useSelector((state) => state.user._id);
   const isLiked = Boolean(likes[loggedInUserId]);
   const likeCount = Object.keys(likes).length;
-  console.log("post user", postUserID);
+  console.log("post id", postId, loggedInUserId);
 
   const patchLike = async () => {
     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
@@ -39,6 +40,7 @@ const Post = ({
     const updatedPost = await response.json();
     dispatch(setPost({ post: updatedPost }));
   };
+
   return (
     <div className="flex flex-col space-y-4   text-black bg-white p-5 w-96 rounded-xl">
       <Friend
