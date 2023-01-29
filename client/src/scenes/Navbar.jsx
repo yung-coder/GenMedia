@@ -30,17 +30,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-between bg-white p-3">
+      <div className="flex justify-between items-center bg-[#FFFFF0] p-3">
         <div className="flex space-x-3">
-          <h1 className="text-black">GenPedia</h1>
-          <div className="hidden md:flex bg-gray-200 justify-center items-center px-3  rounded-lg h-fit">
-            <input
-              type="text"
-              className=" bg-gray-200 w-[140px] outline-none px-1"
-              placeholder="Search..."
-            />
-            <AiOutlineSearch />
-          </div>
+          <h1 className="text-black font-sans text-xl font-bold">GENMEDIA</h1>
         </div>
         <div className="hidden md:flex justify-center items-center space-x-3">
           {mode === "light" ? (
@@ -55,12 +47,12 @@ const Navbar = () => {
             />
           )}
           <div className="">
-            <select value={value} className="p-1 rounded-md">
+            <select value={value} className="p-2 rounded-md">
               {options.map((user) => {
                 return (
                   <>
-                    <option value={user.value}>{user.label}</option>
-                    <option value="logout">Logout</option>
+                    <option value={user.value} className="font-bold">{user.label}</option>
+                    <option value="logout" className="font-bold">Logout</option>
                   </>
                 );
               })}

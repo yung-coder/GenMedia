@@ -9,10 +9,10 @@ const Layout = () => {
   const [profilePage, setProfilePage] = useState(false);
   return (
     <div className="h-screen text-white flex flex-col md:flex md:flex-row w-screen ">
-      <div className="w-[600px] flex justify-center md:justify-start ">
+      <div className="w-[480px] flex justify-center md:justify-start border">
         <UserWidget userId={_id} picturePath={picturePath} />
       </div>
-      <div className="w-[800px] p-5  flex flex-col space-y-5 ">
+      <div className="w-[800px] p-3  flex  justify-center items-center flex-col space-y-5 border">
         <PostInput picturePath={picturePath} />
         <Posts
           userId={_id}

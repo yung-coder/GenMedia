@@ -3,6 +3,7 @@ import Dropzone from "react-dropzone";
 import { useDispatch, useSelector } from "react-redux";
 import UserImage from "../../components/UserImage";
 import { AiOutlineFileImage } from "react-icons/ai";
+import { BsFileEarmarkImageFill } from "react-icons/bs";
 import { setPosts } from "../../state/index";
 
 const PostInput = ({ picturePath }) => {
@@ -59,7 +60,7 @@ const PostInput = ({ picturePath }) => {
   };
 
   return (
-    <div className="p-5 bg-white rounded-lg flex flex-col space-y-5">
+    <div className="p-5 bg-[#FCF5E5] rounded-lg flex flex-col space-y-5 w-[530px] shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">
       <div className="flex space-x-4 justify-start items-center p-2">
         <div className="w-24">
           <UserImage image={picturePath} />
@@ -67,9 +68,10 @@ const PostInput = ({ picturePath }) => {
         <div className="w-full">
           <input
             type="text"
-            className="px-3 py-3 placeholder-slate-300 text-slate-600 relative bg-white  rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+            className="px-2 py-3 placeholder-slate-300 text-slate-600 relative bg-white  rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
             onChange={(e) => setPost(e.target.value)}
             value={post}
+            placeholder="Whats up....."
           />
         </div>
       </div>
@@ -83,22 +85,22 @@ const PostInput = ({ picturePath }) => {
             {({ getRootProps, getInputProps }) => (
               <div {...getRootProps()}>
                 <input {...getInputProps()} name="picturePath" />
-                <p className="text-black">Add image</p>
+                <p className="text-black">Add Image</p>
               </div>
             )}
           </Dropzone>
         </div>
       )}
-      <div className="flex">
+      <div className="flex space-x-3">
         <div
-          className="flex space-x-2 items-center hover:bg-sky-500 hover:rounded-lg p-2 cursor-pointer"
+          className="flex space-x-2 items-center hover:bg-blue-600 hover:rounded-lg p-2 cursor-pointer"
           onClick={() => setIsImage(!isImage)}
         >
-          <AiOutlineFileImage color="black" />
+          <BsFileEarmarkImageFill color="black" />
           <h2 className="text-black">Image</h2>
         </div>
         <div
-          className="flex space-x-2 items-center hover:bg-sky-500 hover:rounded-lg p-2 cursor-pointer"
+          className="flex space-x-2 items-center hover:bg-blue-600 hover:rounded-lg p-2 cursor-pointer"
           onClick={handlePost}
         >
           <h2 className="text-black">POST</h2>

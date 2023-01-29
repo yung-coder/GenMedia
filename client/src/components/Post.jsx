@@ -41,7 +41,7 @@ const Post = ({
   };
 
   return (
-    <div className="flex flex-col space-y-4   text-black bg-white p-5 w-96 rounded-xl">
+    <div className="flex flex-col space-y-4   text-black bg-[#FAF9F6] p-5 w-96 rounded-xl ">
       <Friend
         friendId={postUserID}
         name={name}
@@ -62,9 +62,9 @@ const Post = ({
             />
           )}
         </div>
-        <div className="flex p-3 space-x-4  border border-black w-full">
+        <div className="flex p-3 space-x-4  w-full">
           <div
-            className="flex justify-start items-center border border-black space-x-3 cursor-pointer"
+            className="flex justify-start items-center  space-x-3 cursor-pointer"
             onClick={patchLike}
           >
             <h1>{isLiked ? <FcLike color="red" /> : <FcLikePlaceholder />}</h1>
@@ -78,12 +78,12 @@ const Post = ({
           </div>
         </div>
         {isComments && (
-          <div className="w-full border border-black">
+          <div className="w-full">
             <div className="w-full">
               {comments.map((comment, i) => (
                 <div key={`${name}-${i}`} className="p-1 w-full">
                   <p>{comment}</p>
-                  <br className="w-56 border border-black" />
+                  <br className="w-56 " />
                 </div>
               ))}
             </div>

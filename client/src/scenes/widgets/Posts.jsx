@@ -38,12 +38,11 @@ const Posts = ({ userId, profilePage, setProfilePage }) => {
     }
   }, []);
 
-
   return (
-    <div className="overflow-auto">
-      <div className="flex flex-col justify-center items-center p-5">
+    <div className="overflow-auto border-t-2 border-[#FFE5B4] w-full">
+      <div className="flex flex-col justify-center items-center p-9">
         {posts.map((post) => (
-          <div className="p-3">
+          <div className="p-4">
             <Post
               key={post._id}
               postId={post._id}
