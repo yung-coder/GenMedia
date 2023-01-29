@@ -24,13 +24,15 @@ const PostInput = ({ picturePath }) => {
     );
   }, []);
 
+  console.log(image);
+
   const handlePost = async () => {
     const formData = new FormData();
     formData.append("userID", _id);
     formData.append("description", post);
     if (image) {
-      formData.append("picture", image[0].name);
-      formData.append("picturePath", image[0].path);
+      formData.append("picture", image[0]);
+      formData.append("picturePath", image[0].name);
     }
 
     const response = await fetch(`http://localhost:3001/posts`, {
@@ -43,8 +45,6 @@ const PostInput = ({ picturePath }) => {
     setImage(null);
     setPost("");
   };
-
-  console.log(user);
 
   const demo = async () => {
     console.log(image);
