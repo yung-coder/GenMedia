@@ -60,7 +60,7 @@ const PostInput = ({ picturePath }) => {
   };
 
   return (
-    <div className="p-5 bg-[#FCF5E5] rounded-lg flex flex-col space-y-5 w-[530px] shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">
+    <div className="p-5 bg-white rounded-lg flex flex-col space-y-5 w-[530px] shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">
       <div className="flex space-x-4 justify-start items-center p-2">
         <div className="w-24">
           <UserImage image={picturePath} />

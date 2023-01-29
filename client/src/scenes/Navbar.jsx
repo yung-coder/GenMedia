@@ -51,8 +51,16 @@ const Navbar = () => {
               {options.map((user) => {
                 return (
                   <>
-                    <option value={user.value} className="font-bold">{user.label}</option>
-                    <option value="logout" className="font-bold">Logout</option>
+                    <option value={user.value} className="font-bold">
+                      {user.label}
+                    </option>
+                    <option
+                      value="logout"
+                      className="font-bold"
+                      onClick={() => dispatch(setLogout())}
+                    >
+                      Logout
+                    </option>
                   </>
                 );
               })}

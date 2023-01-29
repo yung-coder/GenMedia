@@ -10,10 +10,10 @@ const Layout = () => {
   const [profilePage, setProfilePage] = useState(false);
   return (
     <div className="h-screen text-white flex flex-col md:flex md:flex-row w-screen ">
-      <div className="w-[480px] flex justify-center md:justify-start border">
+      <div className="w-[480px] flex justify-center md:justify-start ">
         <UserWidget userId={_id} picturePath={picturePath} />
       </div>
-      <div className="w-[800px] p-5  flex  justify-center items-center flex-col space-y-5 border">
+      <div className="w-[800px] p-5  flex  justify-center items-center flex-col space-y-5 ">
         <PostInput picturePath={picturePath} />
         <Posts
           userId={_id}
@@ -21,7 +21,7 @@ const Layout = () => {
           setProfilePage={setProfilePage}
         />
       </div>
-      <div className="flex justify-center w-[400px] p-5  flex-col items-center space-y-8 p-7">
+      <div className="flex justify-center w-[400px]   flex-col items-center space-y-8 p-7">
         <FriendsWidgets userID={_id} />
         <Promotions />
       </div>

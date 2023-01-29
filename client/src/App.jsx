@@ -13,7 +13,7 @@ function App() {
   return (
     <div
       className={`min-h-screen w-screen ${
-        mode === "light" ? "bg-gray-200" : "bg-black"
+        mode === "light" ? "bg-gray-200" : "bg-[#181818]"
       } `}
     >
       <Routes>
