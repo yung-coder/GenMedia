@@ -13,8 +13,6 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
 
-  const isFriend = friends.find((friend) => friend._id === friendId);
-
   const patchFriend = async () => {
     const response = await fetch(
       `http://localhost:3001/users/${_id}/${friendId}`,
@@ -29,16 +27,19 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     const data = await response.json();
     dispatch(setFriends({ friends: data }));
   };
+  const isFriend = friends.find((friend) => friend._id === friendId);
   return (
     <div className="flex  justify-between  items-center">
       <div className="flex space-x-2 items-center">
         <UserImage image={userPicturePath} />
-        <div className="flex flex-col space-y-1">
+        <div className="flex flex-col space-y-1 text-black">
           <h1>{name}</h1>
           <h2>{subtitle}</h2>
         </div>
       </div>
-      <div>{isFriend ? <IoPersonRemoveSharp /> : <IoMdPersonAdd />}</div>
+      <div onClick={() => patchFriend()}>
+        {isFriend ? <IoPersonRemoveSharp /> : <IoMdPersonAdd />}
+      </div>
     </div>
   );
 };

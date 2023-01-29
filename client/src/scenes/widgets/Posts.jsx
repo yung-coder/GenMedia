@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Post from "../../components/Post";
 import { setPosts } from "../../state/index";
 
-const Posts = ({ userID, profilePage, setProfilePage }) => {
+const Posts = ({ userId, profilePage, setProfilePage }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
@@ -20,7 +20,7 @@ const Posts = ({ userID, profilePage, setProfilePage }) => {
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `http://localhost:3001/posts/${userID}/posts`,
+      `http://localhost:3001/posts/${userId}/posts`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
@@ -37,40 +37,27 @@ const Posts = ({ userID, profilePage, setProfilePage }) => {
       getPosts();
     }
   }, []);
+
+  console.log(posts);
   return (
     <div className="overflow-auto">
       <div className="flex flex-col justify-center items-center p-5">
-        {posts.map(
-          ({
-            _id,
-            userID,
-            firstName,
-            lastName,
-            description,
-            location,
-            picturePath,
-            userPicturePath,
-            likes,
-            comments,
-          }) => (
-            <>
-              <div className="p-3">
-                <Post
-                  key={_id}
-                  postId={_id}
-                  postUserId={userID}
-                  name={`${firstName} ${lastName}`}
-                  description={description}
-                  location={location}
-                  picturePath={picturePath}
-                  userPicturePath={userPicturePath}
-                  likes={likes}
-                  comments={comments}
-                />
-              </div>
-            </>
-          )
-        )}
+        {posts.map((post) => (
+          <div className="p-3">
+            <Post
+              key={post._id}
+              postId={post._id}
+              postUserID={post.userID}
+              name={`${post.firstName} ${post.lastName}`}
+              description={post.description}
+              location={post.location}
+              picturePath={post.picturePath}
+              userPicturePath={post.userPicturePath}
+              likes={post.likes}
+              comments={post.comments}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

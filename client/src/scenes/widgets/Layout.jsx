@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import PostInput from "./PostInput";
 import UserWidget from "./UserWidget";
 import Posts from "../widgets/Posts";
+import FriendsWidgets from "./FriendsWidgets";
 const Layout = () => {
   const { _id, picturePath } = useSelector((state) => state.user);
   const [profilePage, setProfilePage] = useState(false);
@@ -14,12 +15,14 @@ const Layout = () => {
       <div className="w-[800px] p-5  flex flex-col space-y-5 ">
         <PostInput picturePath={picturePath} />
         <Posts
-          userID={_id}
+          userId={_id}
           profilePage={profilePage}
           setProfilePage={setProfilePage}
         />
       </div>
-      // tomm finish
+      <div>
+        <FriendsWidgets userID={_id} />
+      </div>
     </div>
   );
 };
