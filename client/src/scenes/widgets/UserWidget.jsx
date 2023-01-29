@@ -43,7 +43,7 @@ const UserWidget = ({ userId, picturePath }) => {
 
   return (
     <div className="w-fit py-9 px-4 md:mt-10 md:ml-6 md:px-0 md:py-0">
-      <div className="flex flex-col border justify-center items-center p-3 bg-white rounded-lg shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]">
+      <div className="flex flex-col border justify-center items-center p-3 bg-white rounded-lg shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
         <div className="flex justify-center items-center space-x-4 p-3 md:p-5">
           <div className="flex justify-center items-center">
             <UserImage image={picturePath} />

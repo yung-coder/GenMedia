@@ -29,7 +29,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     dispatch(setFriends({ friends: data }));
   };
   return (
-    <div className="flex  justify-between  items-center p-1 ">
+    <div className="flex  justify-between  items-center  cursor-pointer">
       <div
         className="flex space-x-2 items-center"
         onClick={() => {
@@ -37,7 +37,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
         }}
       >
         <UserImage image={userPicturePath} />
-        <div className="flex flex-col space-y-1 text-black">
+        <div className="flex flex-col space-y-1 text-black hover:text-gray-500">
           <h1>{name}</h1>
           <h2 className="text-xs">{subtitle}</h2>
         </div>
