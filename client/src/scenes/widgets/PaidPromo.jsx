@@ -1,8 +1,8 @@
 import React from "react";
 
-const Promotions = () => {
+const PaidPromo = () => {
   return (
-    <div class="flex-shrink-0 m-6 relative overflow-hidden bg-teal-500 rounded-lg max-w-xs shadow-lg">
+    <div class="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg">
       <svg
         class="absolute bottom-0 left-0 mb-8"
         viewBox="0 0 375 283"
@@ -32,16 +32,16 @@ const Promotions = () => {
         ></div>
         <img
           class="relative w-40"
-          src="https://user-images.githubusercontent.com/2805249/64069998-305de300-cc9a-11e9-8ae7-5a0fe00299f2.png"
+          src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
           alt=""
         />
       </div>
       <div class="relative text-white px-6 pb-6 mt-6">
         <span class="block opacity-75 -mb-1">Promotion</span>
         <div class="flex justify-between">
-          <span class="block font-semibold text-xl">Monstera</span>
-          <span class="block bg-white rounded-full text-teal-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
-            $45.00
+          <span class="block font-semibold text-xl">Peace Lily</span>
+          <span class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
+            $36.00
           </span>
         </div>
       </div>
@@ -49,4 +49,4 @@ const Promotions = () => {
   );
 };
 
-export default Promotions;
+export default PaidPromo;
