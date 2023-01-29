@@ -38,7 +38,7 @@ const Posts = ({ userId, profilePage, setProfilePage }) => {
     }
   }, []);
 
-  console.log(posts);
+
   return (
     <div className="overflow-auto">
       <div className="flex flex-col justify-center items-center p-5">

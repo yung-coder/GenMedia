@@ -8,7 +8,7 @@ import { MdWorkOutline } from "react-icons/md";
 import { AiOutlineUserAdd } from "react-icons/ai";
 
 const UserWidget = ({ userId, picturePath }) => {
-  console.log(typeof picturePath);
+
   const [user, setuser] = useState();
   const navigate = useNavigate();
   const token = useSelector((state) => state.token);

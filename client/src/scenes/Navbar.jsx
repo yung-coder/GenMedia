@@ -20,7 +20,6 @@ const Navbar = () => {
   const [value, setValue] = React.useState("");
 
   const handelToogle = () => {
-    console.log("clicked");
     setopen(!open);
     if (open === true) {
       Hammenu.current.style.display = "none";

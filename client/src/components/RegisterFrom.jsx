@@ -56,7 +56,6 @@ const RegisterFrom = () => {
       formData.append(value, inputs[value]);
     }
     formData.append("picturePath",  files[0].path);
-    console.log(formData);
   };
   return (
     <div class="container mx-auto">

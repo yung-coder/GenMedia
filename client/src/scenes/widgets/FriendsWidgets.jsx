@@ -24,7 +24,7 @@ const FriendsWidgets = ({ userID }) => {
     getFriends();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  console.log(friends);
+
   return (
     <div className="bg-white w-full h-fit flex flex-col rounded-lg p-4">
       <div className="flex">

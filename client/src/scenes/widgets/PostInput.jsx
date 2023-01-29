@@ -24,7 +24,6 @@ const PostInput = ({ picturePath }) => {
     );
   }, []);
 
-  console.log(image);
 
   const handlePost = async () => {
     const formData = new FormData();
@@ -47,7 +46,7 @@ const PostInput = ({ picturePath }) => {
   };
 
   const demo = async () => {
-    console.log(image);
+
     const formData = new FormData();
     formData.append("userId", _id);
     formData.append("description", post);
@@ -56,7 +55,7 @@ const PostInput = ({ picturePath }) => {
       formData.append("picturePath", image[0].path);
     }
 
-    console.log(formData);
+
   };
 
   return (
