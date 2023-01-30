@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import Friend from "./Friend";
-import UserImage from "./UserImage";
-import { IoMdPersonAdd } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { FcLike } from "react-icons/fc";
