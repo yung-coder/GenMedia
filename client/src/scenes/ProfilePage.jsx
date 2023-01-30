@@ -6,6 +6,7 @@ import UserWidget from "../scenes/widgets/UserWidget";
 import Posts from "../scenes/widgets/Posts";
 import FriendsWidgets from "../scenes/widgets/FriendsWidgets";
 import Navbar from "../scenes/Navbar";
+import Promotions from "./widgets/Promotions";
 const index = () => {
   const [user, setUser] = useState(null);
   const { userId } = useParams();
@@ -32,10 +33,10 @@ const index = () => {
     <>
       <Navbar />
       <div className="h-screen text-white flex flex-col md:flex md:flex-row w-screen ">
-        <div className="w-[600px] flex justify-center md:justify-start ">
+        <div className="w-[480px] flex justify-center md:justify-start flex-col ">
           <UserWidget userId={userId} picturePath={user.picturePath} />
         </div>
-        <div className="w-[800px] p-5  flex flex-col space-y-5 ">
+        <div className="w-[800px] p-5  flex  justify-center items-center flex-col space-y-5 ">
           <PostInput picturePath={user.picturePath} />
           <Posts
             userId={userId}
@@ -43,8 +44,9 @@ const index = () => {
             setProfilePage={setProfilePage}
           />
         </div>
-        <div className="flex justify-center w-[400px] p-5">
+        <div className="flex justify-center w-[400px]  flex-col items-center space-y-4 p-7">
           <FriendsWidgets userID={userId} />
+          <Promotions />
         </div>
       </div>
     </>
