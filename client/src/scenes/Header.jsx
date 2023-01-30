@@ -2,9 +2,9 @@ import React from "react";
 const AuthSection = () => {
   return (
     <>
-      <div className="bg-slate-300 flex justify-center items-center p-1">
+      <div className="bg-[#FFFFF0] flex justify-center items-center p-3">
         <h1 className="text-2xl font-bold text-black tracking-widest">
-          GenPedia
+          GENMEDIA
         </h1>
       </div>
     </>

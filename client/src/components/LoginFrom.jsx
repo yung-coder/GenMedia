@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setLogin } from "../state/index";
+import Cover from "../../public/final-cover.jpg";
 const LoginFrom = () => {
   const [inputs, setinputs] = useState({});
   const navigate = useNavigate();
@@ -32,10 +33,12 @@ const LoginFrom = () => {
     }
   };
   return (
-    <div class="container mx-auto">
-      <div class="flex justify-center px-6 my-12">
+    <div class="container mx-auto  mt-10">
+      <div class="flex justify-center px-6 my-12 ">
         <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-          <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"></div>
+          <div class="w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-lg">
+            <img src={Cover} alt="" className="w-full h-full"/>
+          </div>
 
           <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
             <h3 class="pt-4 text-2xl text-center">Welcome Back!</h3>
@@ -83,7 +86,7 @@ const LoginFrom = () => {
               <hr class="mb-6 border-t" />
               <div class="text-center">
                 <a
-                  class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                  class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800 cursor-pointer"
                   onClick={() => navigate("/register")}
                 >
                   Create an Account!

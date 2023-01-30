@@ -1,12 +1,13 @@
 import React, { useCallback, useState } from "react";
 import Dropzone from "react-dropzone";
 import { useNavigate } from "react-router-dom";
+import Cover from "../../public/final-cover.jpg";
 
 const RegisterFrom = () => {
   const [inputs, setinputs] = useState({});
   const [files, setFiles] = useState([]);
   const navigate = useNavigate();
-  
+
   const onDrop = useCallback((acceptedFiles) => {
     setFiles(
       acceptedFiles.map((file) =>
@@ -16,7 +17,6 @@ const RegisterFrom = () => {
       )
     );
   }, []);
-
 
   const getinputs = (data) => {
     const { value, name } = data.target;
@@ -32,7 +32,7 @@ const RegisterFrom = () => {
       for (let value in inputs) {
         formData.append(value, inputs[value]);
       }
-      formData.append("picturePath",  files[0].path);
+      formData.append("picturePath", files[0].path);
       const savedUserResponse = await fetch(
         "http://localhost:3001/auth/register",
         {
@@ -55,17 +55,22 @@ const RegisterFrom = () => {
     for (let value in inputs) {
       formData.append(value, inputs[value]);
     }
-    formData.append("picturePath",  files[0].path);
+    formData.append("picturePath", files[0].path);
   };
   return (
     <div class="container mx-auto">
       <div class="flex justify-center px-6 my-12">
         <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-          <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/3 bg-cover rounded-l-lg"></div>
+          <div class="w-full h-full bg-white hidden  lg:block lg:w-[600px]  rounded-l-lg">
+            <img src={Cover} alt="" className="h-full w-full object-contain" />
+          </div>
 
           <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
             <h3 class="pt-4 text-2xl text-center">Create an Account!</h3>
-            <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" onSubmit={register}>
+            <form
+              class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
+              onSubmit={register}
+            >
               <div class="mb-4 md:flex md:justify-between">
                 <div class="mb-4 md:mr-2 md:mb-0">
                   <label
@@ -155,10 +160,7 @@ const RegisterFrom = () => {
               >
                 {({ getRootProps, getInputProps }) => (
                   <div {...getRootProps()}>
-                    <input
-                      {...getInputProps()}
-                      name="picturePath"
-                    />
+                    <input {...getInputProps()} name="picturePath" />
                     <p>
                       Drag 'n' drop some files here, or click to select files
                     </p>
@@ -194,7 +196,7 @@ const RegisterFrom = () => {
               <hr class="mb-6 border-t" />
               <div class="text-center">
                 <a
-                  class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                  class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800 cursor-pointer"
                   onClick={() => navigate("/login")}
                 >
                   Already have an account? Login!
