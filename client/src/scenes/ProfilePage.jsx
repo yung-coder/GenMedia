@@ -32,11 +32,25 @@ const index = () => {
   return (
     <>
       <Navbar />
-      <div className="h-screen text-white flex flex-col md:flex md:flex-row w-screen ">
-        <div className="w-[480px] flex justify-center md:justify-start flex-col ">
+      <div className=" text-white flex flex-col md:flex md:flex-row md:h-screen md:w-screen">
+        <div className="flex justify-center items-center flex-col md:hidden">
+          <div className="w-[480px] flex justify-center md:justify-start flex-col items-center">
+            <UserWidget userId={userId} picturePath={user.picturePath} />
+          </div>
+          <div className="w-[800px] p-5  flex  justify-center items-center flex-col space-y-5 ">
+            <PostInput picturePath={user.picturePath} />
+            <Posts
+              userId={userId}
+              profilePage={profilePage}
+              setProfilePage={setProfilePage}
+            />
+          </div>
+        </div>
+
+        <div className="w-[480px] hidden justify-center md:justify-start flex-col items-center md:flex">
           <UserWidget userId={userId} picturePath={user.picturePath} />
         </div>
-        <div className="w-[800px] p-5  flex  justify-center items-center flex-col space-y-5 ">
+        <div className="w-[800px] p-5  hidden  justify-center items-center flex-col space-y-5 md:flex">
           <PostInput picturePath={user.picturePath} />
           <Posts
             userId={userId}
@@ -44,6 +58,7 @@ const index = () => {
             setProfilePage={setProfilePage}
           />
         </div>
+
         <div className="flex justify-center w-[400px]  flex-col items-center space-y-4 p-7">
           <FriendsWidgets userID={userId} />
           <Promotions />
