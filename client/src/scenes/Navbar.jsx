@@ -72,7 +72,7 @@ const Navbar = () => {
         </div>
       </div>
       <div
-        className=" absolute hidden bg-slate-200  flex-col justify-center items-center rounded-md right-1 top-16 p-5 w-fit space-y-3 md:hidden"
+        className=" absolute hidden bg-slate-  flex-col justify-center items-center rounded-md right-1 top-16 p-5 w-fit space-y-3 md:hidden"
         ref={Hammenu}
       >
         {mode === "light" ? (
