@@ -58,10 +58,10 @@ const RegisterFrom = () => {
     formData.append("picturePath", files[0].path);
   };
   return (
-    <div class="container mx-auto">
+    <div class="container h-screen mx-auto ">
       <div class="flex justify-center px-6 my-12">
-        <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-          <div class="w-full h-full bg-white hidden  lg:block lg:w-[600px]  rounded-l-lg">
+        <div class="w-full xl:w-3/4 lg:w-11/12 flex ">
+          <div class="w-full h-full bg-white  hidden  lg:block lg:w-[600px]  rounded-l-lg">
             <img src={Cover} alt="" className="h-full w-full object-contain" />
           </div>
 
@@ -129,7 +129,7 @@ const RegisterFrom = () => {
                   loaction
                 </label>
                 <input
-                  class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  class="w-full p-1 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                   id="loaction"
                   type="text"
                   placeholder="Enter your location.."
@@ -139,13 +139,13 @@ const RegisterFrom = () => {
               </div>
               <div class="mb-4">
                 <label
-                  class="block mb-2 text-sm font-bold text-gray-700"
+                  class="block   text-sm font-bold text-gray-700"
                   for="occupation"
                 >
                   Occupation
                 </label>
                 <input
-                  class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  class="w-full p-1  md:mt-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                   id="occupation"
                   type="text"
                   placeholder="Your occupation.."
@@ -153,21 +153,21 @@ const RegisterFrom = () => {
                   onChange={getinputs}
                 />
               </div>
-              <Dropzone
-                acceptedFiles=".jpg,.jpeg,.png"
-                multiple={false}
-                onDrop={onDrop}
-              >
-                {({ getRootProps, getInputProps }) => (
-                  <div {...getRootProps()}>
-                    <input {...getInputProps()} name="picturePath" />
-                    <p>
-                      Drag 'n' drop some files here, or click to select files
-                    </p>
-                  </div>
-                )}
-              </Dropzone>
-              <div class="mb-4 md:flex md:justify-between">
+              <div className="border-dashed border-2 border-sky-500 p-1 cursor-pointer">
+                <Dropzone
+                  acceptedFiles=".jpg,.jpeg,.png"
+                  multiple={false}
+                  onDrop={onDrop}
+                >
+                  {({ getRootProps, getInputProps }) => (
+                    <div {...getRootProps()}>
+                      <input {...getInputProps()} name="picturePath" />
+                      <p>Add Your Profile picture</p>
+                    </div>
+                  )}
+                </Dropzone>
+              </div>
+              <div class="mb-4 md:flex md:justify-between mt-5">
                 <div class="mb-4 md:mr-2 md:mb-0">
                   <label
                     class="block mb-2 text-sm font-bold text-gray-700"
@@ -185,15 +185,15 @@ const RegisterFrom = () => {
                   />
                 </div>
               </div>
-              <div class="mb-6 text-center">
+              <div class=" text-center">
                 <button
-                  class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                  class="w-full p-1 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                   type="sumbit"
                 >
                   Register Account
                 </button>
               </div>
-              <hr class="mb-6 border-t" />
+              <hr class=" border-t" />
               <div class="text-center">
                 <a
                   class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800 cursor-pointer"
