@@ -42,7 +42,7 @@ const Posts = ({ userId, profilePage, setProfilePage }) => {
     <div className="overflow-auto  w-full">
       <div className="flex flex-col justify-center items-center p-16">
         {posts.map((post) => (
-          <div className="p-4">
+          <div className="p-4" key={post._id}>
             <Post
               key={post._id}
               postId={post._id}

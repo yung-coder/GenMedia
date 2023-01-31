@@ -46,26 +46,25 @@ const Navbar = () => {
               className="cursor-pointer"
             />
           )}
-          <div className="">
-            <select value={value} className="p-2 rounded-md">
-              {options.map((user) => {
-                return (
-                  <>
-                    <option value={user.value} className="font-bold">
-                      {user.label}
-                    </option>
-                    <option
-                      value="logout"
-                      className="font-bold"
-                      onClick={() => dispatch(setLogout())}
-                    >
-                      Logout
-                    </option>
-                  </>
-                );
-              })}
-            </select>
-          </div>
+
+          <select value={value} className="p-2 rounded-md">
+            {options.map((user) => {
+              return (
+                <div key={user}>
+                  <option value={user.value} className="font-bold">
+                    {user.label}
+                  </option>
+                  <option
+                    value="logout"
+                    className="font-bold"
+                    onClick={() => dispatch(setLogout())}
+                  >
+                    Logout
+                  </option>
+                </div>
+              );
+            })}
+          </select>
         </div>
         <div className="flex justify-center items-center cursor-pointer md:hidden">
           <GiHamburgerMenu onClick={handelToogle} />
@@ -86,18 +85,16 @@ const Navbar = () => {
             className="cursor-pointer"
           />
         )}
-        <div className="">
-          <select value={value} className="p-1 rounded-md">
-            {options.map((user) => {
-              return (
-                <>
-                  <option value={user.value}>{user.label}</option>
-                  <option value="logout">Logout</option>
-                </>
-              );
-            })}
-          </select>
-        </div>
+        <select value={value} className="p-1 rounded-md">
+          {options.map((user) => {
+            return (
+              <label key={user}>
+                <option value={user.value}>{user.label}</option>
+                <option value="logout">Logout</option>
+              </label>
+            );
+          })}
+        </select>
       </div>
     </>
   );

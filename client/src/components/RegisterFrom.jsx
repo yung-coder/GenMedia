@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import Dropzone from "react-dropzone";
 import { useNavigate } from "react-router-dom";
-import Cover from "../../public/final-cover.jpg";
+import Cover from "../assets/final-cover.jpg";
 
 const RegisterFrom = () => {
   const [inputs, setinputs] = useState({});
@@ -75,7 +75,7 @@ const RegisterFrom = () => {
                 <div className="mb-4 md:mr-2 md:mb-0">
                   <label
                     className="block mb-2 text-sm font-bold text-gray-700"
-                    for="firstName"
+                    htmlFor="firstName"
                   >
                     First Name
                   </label>
@@ -91,7 +91,7 @@ const RegisterFrom = () => {
                 <div className="md:ml-2">
                   <label
                     className="block mb-2 text-sm font-bold text-gray-700"
-                    for="lastName"
+                    htmlFor="lastName"
                   >
                     Last Name
                   </label>
@@ -108,7 +108,7 @@ const RegisterFrom = () => {
               <div className="mb-4">
                 <label
                   className="block mb-2 text-sm font-bold text-gray-700"
-                  for="email"
+                  htmlFor="email"
                 >
                   Email
                 </label>
@@ -124,7 +124,7 @@ const RegisterFrom = () => {
               <div className="mb-4">
                 <label
                   className="block mb-2 text-sm font-bold text-gray-700"
-                  for="loaction"
+                  htmlFor="loaction"
                 >
                   loaction
                 </label>
@@ -140,7 +140,7 @@ const RegisterFrom = () => {
               <div className="mb-4">
                 <label
                   className="block   text-sm font-bold text-gray-700"
-                  for="occupation"
+                  htmlFor="occupation"
                 >
                   Occupation
                 </label>
@@ -171,7 +171,7 @@ const RegisterFrom = () => {
                 <div className="mb-4 md:mr-2 md:mb-0">
                   <label
                     className="block mb-2 text-sm font-bold text-gray-700"
-                    for="password"
+                    htmlFor="password"
                   >
                     Password
                   </label>

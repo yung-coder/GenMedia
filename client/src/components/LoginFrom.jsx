@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setLogin } from "../state/index";
-import Cover from "../../public/final-cover.jpg";
+import Cover from "../assets/final-cover.jpg";
 const LoginFrom = () => {
   const [inputs, setinputs] = useState({});
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ const LoginFrom = () => {
               <div className="mb-4">
                 <label
                   className="block mb-2 text-sm font-bold text-gray-700"
-                  for="email"
+                  htmlFor="email"
                 >
                   Email
                 </label>
@@ -62,7 +62,7 @@ const LoginFrom = () => {
               <div className="mb-4">
                 <label
                   className="block mb-2 text-sm font-bold text-gray-700"
-                  for="password"
+                  htmlFor="password"
                 >
                   Password
                 </label>
