@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { BASE_URL } from "../../../utils/deploy";
 import Friend from "../../components/Friend";
 import { setFriends } from "../../state/index";
 
@@ -10,7 +11,7 @@ const FriendsWidgets = ({ userID }) => {
 
   const getFriends = async () => {
     const response = await fetch(
-      `http://localhost:3001/users/${userID}/friends`,
+      `${BASE_URL || 'http://localhost:3001'}/users/${userID}/friends`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

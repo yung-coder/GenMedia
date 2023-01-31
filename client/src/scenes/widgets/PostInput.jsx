@@ -5,6 +5,7 @@ import UserImage from "../../components/UserImage";
 import { AiOutlineFileImage } from "react-icons/ai";
 import { BsFileEarmarkImageFill } from "react-icons/bs";
 import { setPosts } from "../../state/index";
+import { BASE_URL } from "../../../utils/deploy";
 
 const PostInput = ({ picturePath }) => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const PostInput = ({ picturePath }) => {
       formData.append("picturePath", image[0].name);
     }
 
-    const response = await fetch(`http://localhost:3001/posts`, {
+    const response = await fetch(`${BASE_URL || 'http://localhost:3001'}/posts`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,

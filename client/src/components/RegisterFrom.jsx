@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import Dropzone from "react-dropzone";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../utils/deploy";
 import Cover from "../assets/final-cover.jpg";
 
 const RegisterFrom = () => {
@@ -35,7 +36,7 @@ const RegisterFrom = () => {
       formData.append("picture", files[0]);
       formData.append("picturePath", files[0].name);
       const savedUserResponse = await fetch(
-        "http://localhost:3001/auth/register",
+        `${BASE_URL || 'http://localhost:3001'}/auth/register`,
         {
           method: "POST",
           body: formData,

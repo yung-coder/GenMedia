@@ -7,6 +7,7 @@ import Posts from "../scenes/widgets/Posts";
 import FriendsWidgets from "../scenes/widgets/FriendsWidgets";
 import Navbar from "../scenes/Navbar";
 import Promotions from "./widgets/Promotions";
+import { BASE_URL } from "../../utils/deploy";
 const index = () => {
   const [user, setUser] = useState(null);
   const { userId } = useParams();
@@ -14,7 +15,7 @@ const index = () => {
   const [profilePage, setProfilePage] = useState(false);
 
   const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/users/${userId}`, {
+    const response = await fetch(`${BASE_URL || 'http://localhost:3001'}/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

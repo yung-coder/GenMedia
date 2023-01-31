@@ -5,6 +5,7 @@ import { FcLikePlaceholder } from "react-icons/fc";
 import { FcLike } from "react-icons/fc";
 import { AiOutlineComment } from "react-icons/ai";
 import { setPost } from "../state";
+import { BASE_URL } from "../../utils/deploy";
 
 const Post = ({
   postId,
@@ -25,7 +26,7 @@ const Post = ({
   const likeCount = Object.keys(likes).length;
 
   const patchLike = async () => {
-    const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
+    const response = await fetch(`${BASE_URL || 'http://localhost:3001'}/posts/${postId}/like`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,

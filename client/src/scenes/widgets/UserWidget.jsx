@@ -6,6 +6,7 @@ import UserImage from "../../components/UserImage";
 import { GrLocation } from "react-icons/gr";
 import { MdWorkOutline } from "react-icons/md";
 import { AiOutlineUserAdd } from "react-icons/ai";
+import { BASE_URL } from "../../../utils/deploy";
 
 const UserWidget = ({ userId, picturePath }) => {
 
@@ -14,7 +15,7 @@ const UserWidget = ({ userId, picturePath }) => {
   const token = useSelector((state) => state.token);
 
   const getUser = async () => {
-    const response = await fetch(`http://localhost:3001/users/${userId}`, {
+    const response = await fetch(`${BASE_URL || 'http://localhost:3001'}/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

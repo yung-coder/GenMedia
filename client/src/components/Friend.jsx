@@ -5,6 +5,7 @@ import { setFriends } from "../state/index";
 import UserImage from "./UserImage";
 import { IoMdPersonAdd } from "react-icons/io";
 import { IoPersonRemoveSharp } from "react-icons/io5";
+import { BASE_URL } from "../../utils/deploy";
 
 const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const isFriend = friends.find((friend) => friend._id === friendId);
   const patchFriend = async () => {
     const response = await fetch(
-      `http://localhost:3001/users/${_id}/${friendId}`,
+      `${BASE_URL || 'http://localhost:3001'}/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {

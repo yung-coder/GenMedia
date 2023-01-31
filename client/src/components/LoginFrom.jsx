@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setLogin } from "../state/index";
 import Cover from "../assets/final-cover.jpg";
+import { BASE_URL } from "../../utils/deploy";
 const LoginFrom = () => {
   const [inputs, setinputs] = useState({});
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const LoginFrom = () => {
 
   const login = async (e) => {
     e.preventDefault();
-    const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
+    const loggedInResponse = await fetch(`${BASE_URL || 'http://localhost:3001'}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(inputs),
