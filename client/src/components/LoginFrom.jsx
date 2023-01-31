@@ -33,25 +33,25 @@ const LoginFrom = () => {
     }
   };
   return (
-    <div class="container mx-auto  mt-10">
-      <div class="flex justify-center px-6 my-12 ">
-        <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-          <div class="w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-lg">
+    <div className="container mx-auto  mt-10">
+      <div className="flex justify-center px-6 my-12 ">
+        <div className="w-full xl:w-3/4 lg:w-11/12 flex">
+          <div className="w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-lg">
             <img src={Cover} alt="" className="w-full h-full"/>
           </div>
 
-          <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-            <h3 class="pt-4 text-2xl text-center">Welcome Back!</h3>
-            <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" onSubmit={login}>
-              <div class="mb-4">
+          <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+            <h3 className="pt-4 text-2xl text-center">Welcome Back!</h3>
+            <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded" onSubmit={login}>
+              <div className="mb-4">
                 <label
-                  class="block mb-2 text-sm font-bold text-gray-700"
+                  className="block mb-2 text-sm font-bold text-gray-700"
                   for="email"
                 >
                   Email
                 </label>
                 <input
-                  class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                   id="email"
                   type="email"
                   placeholder="Enter your email"
@@ -59,15 +59,15 @@ const LoginFrom = () => {
                   onChange={getinputs}
                 />
               </div>
-              <div class="mb-4">
+              <div className="mb-4">
                 <label
-                  class="block mb-2 text-sm font-bold text-gray-700"
+                  className="block mb-2 text-sm font-bold text-gray-700"
                   for="password"
                 >
                   Password
                 </label>
                 <input
-                  class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                   id="password"
                   type="password"
                   placeholder="******************"
@@ -75,18 +75,18 @@ const LoginFrom = () => {
                   onChange={getinputs}
                 />
               </div>
-              <div class="mb-6 text-center">
+              <div className="mb-6 text-center">
                 <button
-                  class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                  className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                   type="sumbit"
                 >
                   Sign In
                 </button>
               </div>
-              <hr class="mb-6 border-t" />
-              <div class="text-center">
+              <hr className="mb-6 border-t" />
+              <div className="text-center">
                 <a
-                  class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800 cursor-pointer"
+                  className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800 cursor-pointer"
                   onClick={() => navigate("/register")}
                 >
                   Create an Account!
