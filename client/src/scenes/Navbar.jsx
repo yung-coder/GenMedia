@@ -46,25 +46,22 @@ const Navbar = () => {
               className="cursor-pointer"
             />
           )}
-
-          <select value={value} className="p-2 rounded-md">
-            {options.map((user) => {
-              return (
-                <div key={user}>
-                  <option value={user.value} className="font-bold">
-                    {user.label}
-                  </option>
-                  <option
-                    value="logout"
-                    className="font-bold"
-                    onClick={() => dispatch(setLogout())}
-                  >
-                    Logout
-                  </option>
-                </div>
-              );
-            })}
-          </select>
+          {options.map((user) => {
+            return (
+              <select key={user}>
+                <option value={user.value} className="font-bold">
+                  {user.label}
+                </option>
+                <option
+                  value="logout"
+                  className="font-bold"
+                  onClick={() => dispatch(setLogout())}
+                >
+                  Logout
+                </option>
+              </select>
+            );
+          })}
         </div>
         <div className="flex justify-center items-center cursor-pointer md:hidden">
           <GiHamburgerMenu onClick={handelToogle} />
@@ -85,16 +82,14 @@ const Navbar = () => {
             className="cursor-pointer"
           />
         )}
-        <select value={value} className="p-1 rounded-md">
-          {options.map((user) => {
-            return (
-              <label key={user}>
-                <option value={user.value}>{user.label}</option>
-                <option value="logout">Logout</option>
-              </label>
-            );
-          })}
-        </select>
+        {options.map((user) => {
+          return (
+            <select key={user} className="p-2"> 
+              <option value={user.value}>{user.label}</option>
+              <option value="logout">Logout</option>
+            </select>
+          );
+        })}
       </div>
     </>
   );

@@ -33,7 +33,6 @@ const FriendsWidgets = ({ userID }) => {
         {friends.map((friend) => (
           <div className="p-4" key={friend}>
             <Friend
-              key={friend._id}
               friendId={friend._id}
               name={`${friend.firstName} ${friend.lastName}`}
               subtitle={friend.occupation}
