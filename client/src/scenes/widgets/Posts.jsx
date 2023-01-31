@@ -44,7 +44,6 @@ const Posts = ({ userId, profilePage, setProfilePage }) => {
         {posts.map((post) => (
           <div className="p-4" key={post._id}>
             <Post
-              key={post._id}
               postId={post._id}
               postUserID={post.userID}
               name={`${post.firstName} ${post.lastName}`}

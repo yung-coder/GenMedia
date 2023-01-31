@@ -62,7 +62,7 @@ const RegisterFrom = () => {
       <div className="flex justify-center px-6 my-12">
         <div className="w-full xl:w-3/4 lg:w-11/12 flex ">
           <div className="w-full h-full bg-white  hidden  lg:block lg:w-[600px]  rounded-l-lg">
-            <img src={Cover} alt="" classNameName="h-full w-full object-contain" />
+            <img src={Cover} alt="" className="h-full w-full object-contain" />
           </div>
 
           <div className="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
@@ -153,7 +153,7 @@ const RegisterFrom = () => {
                   onChange={getinputs}
                 />
               </div>
-              <div classNameName="border-dashed border-2 border-sky-500 p-1 cursor-pointer">
+              <div className="border-dashed border-2 border-sky-500 p-1 cursor-pointer">
                 <Dropzone
                   acceptedFiles=".jpg,.jpeg,.png"
                   multiple={false}

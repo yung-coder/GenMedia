@@ -31,7 +31,7 @@ const FriendsWidgets = ({ userID }) => {
       </div>
       <div className="mt-2">
         {friends.map((friend) => (
-          <div className="p-4" key={friend}>
+          <div className="p-4" key={friend._id}>
             <Friend
               friendId={friend._id}
               name={`${friend.firstName} ${friend.lastName}`}

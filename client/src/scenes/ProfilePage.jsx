@@ -28,7 +28,6 @@ const index = () => {
 
   if (!user) return null;
 
-  console.log("frined user", user);
   return (
     <>
       <Navbar />

@@ -7,7 +7,6 @@ import { AiOutlineComment } from "react-icons/ai";
 import { setPost } from "../state";
 
 const Post = ({
-  key,
   postId,
   postUserID,
   name,
