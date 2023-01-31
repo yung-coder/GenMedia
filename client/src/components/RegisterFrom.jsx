@@ -27,12 +27,13 @@ const RegisterFrom = () => {
   const register = async (e) => {
     // this allows us to send form info with image
     e.preventDefault();
-    try {
+    try { 
       const formData = new FormData();
       for (let value in inputs) {
         formData.append(value, inputs[value]);
       }
-      formData.append("picturePath", files[0].path);
+      formData.append("picture", files[0]);
+      formData.append("picturePath", files[0].name);
       const savedUserResponse = await fetch(
         "http://localhost:3001/auth/register",
         {
