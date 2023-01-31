@@ -48,7 +48,7 @@ const Navbar = () => {
           )}
           {options.map((user) => {
             return (
-              <select key={user}>
+              <select key={user} className="p-1">
                 <option value={user.value} className="font-bold">
                   {user.label}
                 </option>
@@ -68,7 +68,7 @@ const Navbar = () => {
         </div>
       </div>
       <div
-        className=" absolute hidden bg-slate-  flex-col justify-center items-center rounded-md right-1 top-16 p-5 w-fit space-y-3 md:hidden"
+        className=" absolute hidden bg-slate-300  flex-col justify-center items-center rounded-md right-1 top-16 p-5 w-fit space-y-3 md:hidden"
         ref={Hammenu}
       >
         {mode === "light" ? (
@@ -84,7 +84,7 @@ const Navbar = () => {
         )}
         {options.map((user) => {
           return (
-            <select key={user} className="p-2"> 
+            <select key={user} className="p-1"> 
               <option value={user.value}>{user.label}</option>
               <option value="logout">Logout</option>
             </select>
