@@ -55,7 +55,7 @@ const Post = ({
             <img
               width="100%"
               height="auto"
-              alt="post"
+              alt=""
               src={`http://localhost:3001/assets/${picturePath}`}
               className="rounded-lg"
             />
