@@ -26,20 +26,20 @@ const Post = ({
   const likeCount = Object.keys(likes).length;
 
   const patchLike = async () => {
-    const response = await fetch(`${BASE_URL || 'http://localhost:3001'}/posts/${postId}/like`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userID: loggedInUserId }),
-    });
+    const response = await fetch(
+      `${BASE_URL || "http://localhost:3001"}/posts/${postId}/like`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userID: loggedInUserId }),
+      }
+    );
     const updatedPost = await response.json();
     dispatch(setPost({ post: updatedPost }));
   };
-
-  console.log("User picture path"  ,userPicturePath)
-  console.log("post picture" , picturePath)
 
   return (
     <div className="flex flex-col space-y-4   text-black bg-white p-5 w-[350px] md:w-[450px] rounded-xl shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">
@@ -54,18 +54,16 @@ const Post = ({
           <p>{description}</p>
         </div>
         <div className="">
-          {/* {picturePath && ( */}
-
+          {picturePath && (
             <img
               width="100%"
               height="auto"
-              alt=""
-              src={`${BASE_URL || 'http://localhost:3001'}/assets/${picturePath}`}
+              src={`${
+                BASE_URL || "http://localhost:3001"
+              }/assets/${picturePath}`}
               className="rounded-lg"
             />
-
-
-          {/* )} */}
+          )}
         </div>
         <div className="flex p-3 space-x-4  w-full">
           <div
