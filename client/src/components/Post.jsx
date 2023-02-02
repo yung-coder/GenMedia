@@ -51,7 +51,8 @@ const Post = ({
           <p>{description}</p>
         </div>
         <div className="">
-          {picturePath && (
+          {/* {picturePath && ( */}
+
             <img
               width="100%"
               height="auto"
@@ -59,7 +60,9 @@ const Post = ({
               src={`${BASE_URL || 'http://localhost:3001'}/assets/${picturePath}`}
               className="rounded-lg"
             />
-          )}
+
+
+          {/* )} */}
         </div>
         <div className="flex p-3 space-x-4  w-full">
           <div
