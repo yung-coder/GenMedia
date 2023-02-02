@@ -56,7 +56,7 @@ const Post = ({
               width="100%"
               height="auto"
               alt=""
-              src={`http://localhost:3001/assets/${picturePath}`}
+              src={`${BASE_URL || 'http://localhost:3001'}/assets/${picturePath}`}
               className="rounded-lg"
             />
           )}
