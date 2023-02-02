@@ -36,7 +36,7 @@ const Layout = () => {
         />
       </div>
 
-      <div className="flex justify-center w-[400px]  flex-col items-center space-y-4 p-7">
+      <div className="flex justify-center w-full  flex-col items-center space-y-4 p-7">
         <FriendsWidgets userID={_id} />
         <Promotions />
       </div>
